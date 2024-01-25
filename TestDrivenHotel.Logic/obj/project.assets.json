@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/TestDrivenHotel.Domain.dll": {}
         }
-      },
-      "TestDrivenHotel.Logic/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "TestDrivenHotel.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TestDrivenHotel.Logic.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TestDrivenHotel.Logic.dll": {}
-        }
       }
     }
   },
@@ -32,16 +19,11 @@
       "type": "project",
       "path": "../TestDrivenHotel.Domain/TestDrivenHotel.Domain.csproj",
       "msbuildProject": "../TestDrivenHotel.Domain/TestDrivenHotel.Domain.csproj"
-    },
-    "TestDrivenHotel.Logic/1.0.0": {
-      "type": "project",
-      "path": "../TestDrivenHotel.Logic/TestDrivenHotel.Logic.csproj",
-      "msbuildProject": "../TestDrivenHotel.Logic/TestDrivenHotel.Logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "TestDrivenHotel.Logic >= 1.0.0"
+      "TestDrivenHotel.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -51,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\TestDrivenHotel.UI.csproj",
-      "projectName": "TestDrivenHotel.UI",
-      "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\TestDrivenHotel.UI.csproj",
+      "projectUniqueName": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Logic\\TestDrivenHotel.Logic.csproj",
+      "projectName": "TestDrivenHotel.Logic",
+      "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Logic\\TestDrivenHotel.Logic.csproj",
       "packagesPath": "C:\\Users\\linnea\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\obj\\",
+      "outputPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Logic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -76,8 +58,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Logic\\TestDrivenHotel.Logic.csproj": {
-              "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Logic\\TestDrivenHotel.Logic.csproj"
+            "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.Domain.csproj": {
+              "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.Domain.csproj"
             }
           }
         }
@@ -103,9 +85,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
