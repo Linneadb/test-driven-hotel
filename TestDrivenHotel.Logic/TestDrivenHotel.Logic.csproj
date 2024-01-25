@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TestDrivenHotel.Domain\TestDrivenHotel.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

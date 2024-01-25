@@ -5,6 +5,12 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.UI", "TestDrivenHotel.UI\TestDrivenHotel.UI.csproj", "{C0E568D6-C87C-4BDD-9156-2A5B01C53416}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.Tests", "TestDrivenHotel.Tests\TestDrivenHotel.Tests.csproj", "{3D4D7F74-CDA7-4794-A2C2-038122A8A251}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.Logic", "TestDrivenHotel.Logic\TestDrivenHotel.Logic.csproj", "{58D3CDF4-1CBB-4FBE-B57F-9EB05669FD0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.Domain", "TestDrivenHotel.Domain\TestDrivenHotel.Domain.csproj", "{D37B08A0-8DDF-439F-B529-6D323B63BC8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{C0E568D6-C87C-4BDD-9156-2A5B01C53416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0E568D6-C87C-4BDD-9156-2A5B01C53416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0E568D6-C87C-4BDD-9156-2A5B01C53416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4D7F74-CDA7-4794-A2C2-038122A8A251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4D7F74-CDA7-4794-A2C2-038122A8A251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4D7F74-CDA7-4794-A2C2-038122A8A251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4D7F74-CDA7-4794-A2C2-038122A8A251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D3CDF4-1CBB-4FBE-B57F-9EB05669FD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D3CDF4-1CBB-4FBE-B57F-9EB05669FD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D3CDF4-1CBB-4FBE-B57F-9EB05669FD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D3CDF4-1CBB-4FBE-B57F-9EB05669FD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37B08A0-8DDF-439F-B529-6D323B63BC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37B08A0-8DDF-439F-B529-6D323B63BC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37B08A0-8DDF-439F-B529-6D323B63BC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37B08A0-8DDF-439F-B529-6D323B63BC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
