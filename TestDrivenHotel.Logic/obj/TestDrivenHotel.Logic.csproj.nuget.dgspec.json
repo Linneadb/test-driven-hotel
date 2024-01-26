@@ -4,12 +4,12 @@
     "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Logic\\TestDrivenHotel.Logic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.Domain.csproj": {
+    "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.Domain.csproj",
-        "projectName": "TestDrivenHotel.Domain",
-        "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.DAL.csproj",
+        "projectName": "TestDrivenHotel.DAL",
+        "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.DAL.csproj",
         "packagesPath": "C:\\Users\\linnea\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -43,6 +43,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -91,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.Domain.csproj": {
-                "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.Domain.csproj"
+              "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.DAL.csproj": {
+                "projectPath": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Domain\\TestDrivenHotel.DAL.csproj"
               }
             }
           }

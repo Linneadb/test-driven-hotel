@@ -1,8 +1,13 @@
-﻿namespace TestDrivenHotel.Logic
+﻿using TestDrivenHotel.Domain;
+
+namespace TestDrivenHotel.Logic
 {
     public class BookingLogic
     {
-
+        public Booking CreateBooking()
+        {
+            throw new NotImplementedException();
+        }
         public bool CheckRoomAvailability()
         {
             return true;
