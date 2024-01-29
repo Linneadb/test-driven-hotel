@@ -1,8 +1,6 @@
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\bin\Debug\net8.0\TestDrivenHotel.Logic.deps.json
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\bin\Debug\net8.0\TestDrivenHotel.Logic.dll
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\bin\Debug\net8.0\TestDrivenHotel.Logic.pdb
-C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\bin\Debug\net8.0\TestDrivenHotel.Domain.dll
-C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\bin\Debug\net8.0\TestDrivenHotel.Domain.pdb
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\obj\Debug\net8.0\TestDrivenHotel.Logic.csproj.AssemblyReference.cache
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\obj\Debug\net8.0\TestDrivenHotel.Logic.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\obj\Debug\net8.0\TestDrivenHotel.Logic.AssemblyInfoInputs.cache
@@ -14,3 +12,5 @@ C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\obj\Debug\net
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\obj\Debug\net8.0\refint\TestDrivenHotel.Logic.dll
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\obj\Debug\net8.0\TestDrivenHotel.Logic.pdb
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\obj\Debug\net8.0\ref\TestDrivenHotel.Logic.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\bin\Debug\net8.0\TestDrivenHotel.DAL.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Logic\bin\Debug\net8.0\TestDrivenHotel.DAL.pdb

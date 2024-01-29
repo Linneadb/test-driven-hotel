@@ -6,10 +6,8 @@ C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.UI.runtimeconfig.json
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.UI.dll
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.UI.pdb
-C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.Domain.dll
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.Logic.dll
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.Logic.pdb
-C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.Domain.pdb
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Debug\net8.0\TestDrivenHotel.UI.csproj.AssemblyReference.cache
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Debug\net8.0\TestDrivenHotel.UI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Debug\net8.0\TestDrivenHotel.UI.AssemblyInfoInputs.cache
@@ -35,3 +33,7 @@ C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Debug\net8.0
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Debug\net8.0\TestDrivenHotel.UI.pdb
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Debug\net8.0\TestDrivenHotel.UI.genruntimeconfig.cache
 C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Debug\net8.0\ref\TestDrivenHotel.UI.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.DAL.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\bin\Debug\net8.0\TestDrivenHotel.DAL.pdb

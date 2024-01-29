@@ -1,10 +1,10 @@
-﻿using TestDrivenHotel.Domain;
+﻿using TestDrivenHotel.DAL.Models;
 
 namespace TestDrivenHotel.Logic
 {
     public class BookingLogic
     {
-        public Booking CreateBooking()
+        public BookingModel CreateBooking()
         {
             throw new NotImplementedException();
         }
@@ -15,6 +15,19 @@ namespace TestDrivenHotel.Logic
         public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
         {
             return dt >= start && dt < end;
+        }
+
+        public static List<RoomModel>? FilterRooms(List<RoomModel> rooms, string feature)
+        {
+            if (feature == "Seaview")
+            {
+                return rooms.Where(f => f.Seaview == true).ToList();
+            }
+            if (feature == "Balcony")
+            {
+                return rooms.Where(f => f.Balcony == true).ToList();
+            }
+            else return null;
         }
     }
 }
