@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.UI", "TestDrivenHotel.UI\TestDrivenHotel.UI.csproj", "{C0E568D6-C87C-4BDD-9156-2A5B01C53416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDrivenHotel.UI", "TestDrivenHotel.UI\TestDrivenHotel.UI.csproj", "{C0E568D6-C87C-4BDD-9156-2A5B01C53416}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.Tests", "TestDrivenHotel.Tests\TestDrivenHotel.Tests.csproj", "{3D4D7F74-CDA7-4794-A2C2-038122A8A251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDrivenHotel.Tests", "TestDrivenHotel.Tests\TestDrivenHotel.Tests.csproj", "{3D4D7F74-CDA7-4794-A2C2-038122A8A251}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.Logic", "TestDrivenHotel.Logic\TestDrivenHotel.Logic.csproj", "{58D3CDF4-1CBB-4FBE-B57F-9EB05669FD0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDrivenHotel.Logic", "TestDrivenHotel.Logic\TestDrivenHotel.Logic.csproj", "{58D3CDF4-1CBB-4FBE-B57F-9EB05669FD0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.Domain", "TestDrivenHotel.Domain\TestDrivenHotel.Domain.csproj", "{D37B08A0-8DDF-439F-B529-6D323B63BC8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDrivenHotel.DAL", "TestDrivenHotel.Domain\TestDrivenHotel.DAL.csproj", "{D37B08A0-8DDF-439F-B529-6D323B63BC8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

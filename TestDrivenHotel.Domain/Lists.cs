@@ -1,28 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TestDrivenHotel.DAL.Models;
+﻿using TestDrivenHotel.DAL.Models;
 
 namespace TestDrivenHotel.DAL
 {
-    public class HotelDbContext : DbContext
+    //Creating mock database of Rooms
+    public class Rooms
     {
-        public DbSet<BookingModel> Bookings { get; set; }
-        public DbSet<RoomModel> Rooms { get; set; }
-
-        public HotelDbContext(DbContextOptions<HotelDbContext> options) : base(options)
+        public static List<Models.RoomModel> GetRoomList()
         {
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+            var rooms = new List<Models.RoomModel>
         {
-            // Configure the relationship between RoomModel and BookingModel
-            modelBuilder.Entity<RoomModel>()
-                .HasMany(r => r.Bookings)
-                .WithOne(b => b.Room)
-                .HasForeignKey(b => b.RoomId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Populate Rooms
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            new Models.RoomModel
             {
                 Id = 1,
                 Description = "Luxury Suite with Ocean View",
@@ -30,9 +17,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 2,
                 Seaview = true,
                 Balcony = true
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 2,
                 Description = "Standard Room with City View",
@@ -40,9 +26,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 2,
                 Seaview = false,
                 Balcony = false
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 3,
                 Description = "Family Room with Garden View",
@@ -50,9 +35,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 4,
                 Seaview = false,
                 Balcony = true
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 4,
                 Description = "Deluxe Room with Pool Access",
@@ -60,9 +44,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 2,
                 Seaview = false,
                 Balcony = false
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 5,
                 Description = "Executive Suite with Panoramic View",
@@ -70,9 +53,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 2,
                 Seaview = true,
                 Balcony = true
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 6,
                 Description = "Penthouse with Private Terrace",
@@ -80,9 +62,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 4,
                 Seaview = true,
                 Balcony = true
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 7,
                 Description = "Economy Room with Courtyard View",
@@ -90,9 +71,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 1,
                 Seaview = false,
                 Balcony = false
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 8,
                 Description = "Business Suite with Workstation",
@@ -100,9 +80,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 2,
                 Seaview = true,
                 Balcony = false
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 9,
                 Description = "Honeymoon Villa with Jacuzzi",
@@ -110,9 +89,8 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 2,
                 Seaview = true,
                 Balcony = true
-            });
-
-            modelBuilder.Entity<RoomModel>().HasData(new RoomModel
+            },
+            new Models.RoomModel
             {
                 Id = 10,
                 Description = "Budget Room with Shared Bathroom",
@@ -120,10 +98,22 @@ namespace TestDrivenHotel.DAL
                 MaxNumberOfGuests = 1,
                 Seaview = false,
                 Balcony = false
-            });
+            }
+        };
 
-            // Populate Bookings
-            modelBuilder.Entity<BookingModel>().HasData(new BookingModel
+            return rooms;
+        }
+    }
+
+
+    // Creating mock database of bookings
+    public class Bookings
+    {
+        public static List<BookingModel> GetBookingList()
+        {
+            var bookings = new List<BookingModel>
+        {
+            new BookingModel
             {
                 Id = 1,
                 RoomId = 1,
@@ -131,9 +121,8 @@ namespace TestDrivenHotel.DAL
                 EndDate = new DateTime(2024, 2, 10),
                 Created = DateTime.Now,
                 Comment = "Honeymoon getaway"
-            });
-
-            modelBuilder.Entity<BookingModel>().HasData(new BookingModel
+            },
+            new BookingModel
             {
                 Id = 2,
                 RoomId = 2,
@@ -141,9 +130,8 @@ namespace TestDrivenHotel.DAL
                 EndDate = new DateTime(2024, 3, 20),
                 Created = DateTime.Now,
                 Comment = "Business conference"
-            });
-
-            modelBuilder.Entity<BookingModel>().HasData(new BookingModel
+            },
+            new BookingModel
             {
                 Id = 3,
                 RoomId = 3,
@@ -151,9 +139,8 @@ namespace TestDrivenHotel.DAL
                 EndDate = new DateTime(2024, 4, 15),
                 Created = DateTime.Now,
                 Comment = "Family vacation"
-            });
-
-            modelBuilder.Entity<BookingModel>().HasData(new BookingModel
+            },
+            new BookingModel
             {
                 Id = 4,
                 RoomId = 4,
@@ -161,8 +148,12 @@ namespace TestDrivenHotel.DAL
                 EndDate = new DateTime(2024, 5, 25),
                 Created = DateTime.Now,
                 Comment = "Anniversary celebration"
-            });
+            }
+        };
+
+            return bookings;
         }
     }
-}
 
+
+}
