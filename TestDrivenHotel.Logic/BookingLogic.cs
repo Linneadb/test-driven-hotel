@@ -17,17 +17,32 @@ namespace TestDrivenHotel.Logic
             return dt >= start && dt < end;
         }
 
-        public static List<RoomModel>? FilterRooms(List<RoomModel> rooms, string feature)
+        public List<RoomModel>? FilterRooms(List<RoomModel> rooms, string feature)
         {
-            if (feature == "Seaview")
+
+            //guard clauses
+            if (rooms == null || rooms.Count < 1)
+                throw new ArgumentException("No rooms available to filter");
+
+            if (String.IsNullOrEmpty(feature))
+                throw new ArgumentException("No feature to filter rooms were given");
+
+            switch (feature)
             {
-                return rooms.Where(f => f.Seaview == true).ToList();
+                case "Seaview":
+                    return rooms.Where(f => f.Seaview).ToList();
+                case "Balcony":
+                    return rooms.Where(f => f.Balcony).ToList();
+                default:
+                    return null;
             }
-            if (feature == "Balcony")
-            {
-                return rooms.Where(f => f.Balcony == true).ToList();
-            }
-            else return null;
         }
     }
+
+    /*if (rooms.Any(room => room.GetType()
+                          .GetProperties()
+                          .Select(pi => pi.GetValue(room))
+                          .Any(value => value == null)))
+                throw new NullReferenceException();
+    */
 }
