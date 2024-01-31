@@ -1,0 +1,13 @@
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\bin\Release\net8.0\TestDrivenHotel.DAL.deps.json
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\bin\Release\net8.0\TestDrivenHotel.DAL.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\bin\Release\net8.0\TestDrivenHotel.DAL.pdb
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.csproj.AssemblyReference.cache
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.AssemblyInfoInputs.cache
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.AssemblyInfo.cs
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.csproj.CoreCompileInputs.cache
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.sourcelink.json
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\refint\TestDrivenHotel.DAL.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\TestDrivenHotel.DAL.pdb
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.Domain\obj\Release\net8.0\ref\TestDrivenHotel.DAL.dll

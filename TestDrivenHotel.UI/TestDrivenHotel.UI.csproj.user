@@ -2,5 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\Properties\PublishProfiles\testdriven-hotel-linnea - Zip Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

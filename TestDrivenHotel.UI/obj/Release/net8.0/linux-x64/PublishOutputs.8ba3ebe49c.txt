@@ -1,0 +1,13 @@
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.UI
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\appsettings.Development.json
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\appsettings.json
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.UI.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.UI.deps.json
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.UI.runtimeconfig.json
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.UI.pdb
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.DAL.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.Logic.dll
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.Logic.pdb
+C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\obj\Release\net8.0\linux-x64\PubTmp\Out\TestDrivenHotel.DAL.pdb

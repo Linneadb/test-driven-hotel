@@ -67,6 +67,11 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
       }
     },
     "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.Logic\\TestDrivenHotel.Logic.csproj": {
@@ -129,6 +134,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
         }
       }
     }

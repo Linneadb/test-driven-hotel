@@ -6,7 +6,7 @@ namespace TestDrivenHotel.Tests
     public class BookingLogicTests
     {
         [Fact]
-        public void SelectRoomFeatures_ShouldReturnRoomsWithASeaview()
+        public void FilterRooms_ShouldReturnRoomsWithASeaview()
         {
             //Given
             List<DAL.Models.RoomModel> roomsToSelectFrom = DAL.Rooms.GetRoomList();
@@ -21,7 +21,7 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void SelectRoomFeatures_ShouldReturnRoomsWithABalcony()
+        public void FilterRooms_ShouldReturnRoomsWithABalcony()
         {
             //Given
             List<DAL.Models.RoomModel> roomsToSelectFrom = DAL.Rooms.GetRoomList();
@@ -36,7 +36,7 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void SelectRoomFeatures_NoRoomsWithSeaview_ShouldReturnEmptyList()
+        public void FilterRooms_NoRoomsWithSeaview_ShouldReturnEmptyList()
         {
             //Given
             List<DAL.Models.RoomModel> roomsWithNoSeaview = new List<DAL.Models.RoomModel>()
@@ -66,7 +66,7 @@ namespace TestDrivenHotel.Tests
         //Test for null or empty
         //Test that it is a List in input and output. 
         [Fact]
-        public void SelectRoomFeatures_EmptyList_ShouldReturnEmptyListException()
+        public void FilterRooms_EmptyList_ShouldReturnEmptyListException()
         {
             //Given
             List<DAL.Models.RoomModel> rooms = [];
