@@ -4,92 +4,102 @@ namespace TestDrivenHotel.Logic
 {
     public class BookingLogic
     {
+
+        //Choose a room and see the room description
+        public bool SelectRoom()
+        {
+
+            throw new NotImplementedException();
+
+            //return GetRoomById;
+        }
+
+        public double CalculatePrice(RoomModel room, int guests)
+        {
+            double totalPrice = room.Price;
+            //price logic
+            if (guests > 1)
+                totalPrice = (double)(room.Price * guests) * 0.75;
+
+            return totalPrice;
+        }
+
         public BookingModel CreateBooking()
         {
             throw new NotImplementedException();
+            //Should add booking to BookingList
         }
-        public bool CheckRoomAvailability()
+
+
+        public List<RoomModel> GetAvailableRooms(List<RoomModel> rooms, List<BookingModel> bookings, string feature, int guests, DateTime arrivalDate, DateTime departureDate)
         {
-            return true;
-        }
-        public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
-        {
-            return dt >= start && dt < end;
-        }
+            if (rooms == null)
+                throw new ArgumentNullException();
 
-        /* public List<RoomModel>? FilterRooms(List<RoomModel> rooms, string feature)
-         {
+            List<RoomModel>? roomsFilteredByFeatures = FilterFeatures(rooms, feature);
+            List<RoomModel>? roomsFilteredByNrOfGuests = FilterGuests(roomsFilteredByFeatures, guests);
+            List<RoomModel>? availableRooms = FilterDates(roomsFilteredByNrOfGuests, bookings, arrivalDate, departureDate);
 
-             //guard clauses
-             if (rooms == null || rooms.Count < 1)
-                 throw new ArgumentException("No rooms available to filter");
-
-             if (String.IsNullOrEmpty(feature))
-                 throw new ArgumentException("No feature to filter rooms were given");
-
-             switch (feature)
-             {
-                 case "Seaview":
-                     return rooms.Where(f => f.Seaview).ToList();
-                 case "Balcony":
-                     return rooms.Where(f => f.Balcony).ToList();
-                 default:
-                     return null;
-             }
-         }
-        */
-
-
-        public List<RoomModel> FilterRooms(List<DAL.Models.RoomModel> rooms, string feature, int guests)
-        {
-            // Guard clauses
-            if (rooms == null || rooms.Count < 1)
-                throw new ArgumentException("No rooms available to filter");
-
-            if (CheckForNullProperties(rooms))
-                throw new NullReferenceException("There are rooms that contain null values");
-
-            List<DAL.Models.RoomModel>? roomsFilteredByFeatures = FilterFeatures(rooms, feature);
-            List<DAL.Models.RoomModel>? roomsFilteredByNrOfGuests = FilterGuests(roomsFilteredByFeatures, guests);
-
-            return roomsFilteredByNrOfGuests;
+            return availableRooms;
         }
 
-        private List<RoomModel>? FilterGuests(List<DAL.Models.RoomModel> rooms, int guests)
-        {
-            if (guests > 0)
-            {
-                return rooms.Where(r => r.MaxNumberOfGuests >= guests).ToList();
-            }
 
-            throw new ArgumentNullException("There is no number of guests sumbitted");
-        }
+        //Broken out functions from GetAvailableRooms()
 
-        private List<DAL.Models.RoomModel>? FilterFeatures(List<DAL.Models.RoomModel> rooms, string feature)
+        public List<RoomModel>? FilterFeatures(List<RoomModel> rooms, string feature)
         {
             if (String.IsNullOrEmpty(feature))
+                throw new ArgumentNullException("There is not feature given");
+
+            switch (feature)
             {
-                // Switch statement to filter rooms based on the feature
-                switch (feature)
-                {
-                    case "Seaview":
-                        return rooms.Where(r => r.Seaview).ToList();
-                    case "Balcony":
-                        return rooms.Where(r => r.Balcony).ToList();
-                    default:
-                        return rooms.Where(r => !r.Balcony && !r.Seaview).ToList();
-                }
+                case "Seaview":
+                    return rooms.Where(r => r.Seaview).ToList();
+                case "Balcony":
+                    return rooms.Where(r => r.Balcony).ToList();
+                default:
+                    return new List<RoomModel>();
             }
-            throw new ArgumentNullException("There is not feature given");
         }
 
-        private bool CheckForNullProperties(List<RoomModel> rooms)
+        public List<RoomModel>? FilterGuests(List<RoomModel> rooms, int guests)
         {
-            return rooms.Any(room => room.GetType()
-                              .GetProperties()
-                              .Select(pi => pi.GetValue(room))
-                              .Any(value => value == null));
+            if (guests <= 0)
+                throw new ArgumentNullException("There is no number of guests sumbitted");
+
+            return rooms.Where(r => r.MaxNumberOfGuests >= guests).ToList();
+
         }
+        public List<RoomModel>? FilterDates(List<RoomModel> rooms, List<BookingModel> bookings, DateTime arrivalDate, DateTime departureDate)
+        {
+            List<BookingModel> availableBookings = bookings.Where(b => (b.EndDate < arrivalDate) || (b.StartDate > departureDate)).ToList();
+
+            List<int> availableRoomIds = availableBookings.Select(b => b.RoomId).ToList();
+
+            return rooms.Where(r => availableRoomIds.Contains(r.Id)).ToList();
+
+        }
+
+
+        /*
+      public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
+      {
+          return dt >= start && dt < end;
+      }
+
+
+          if (CheckForNullProperties(rooms))
+              throw new NullReferenceException("There are rooms that contain null values");
+
+      private bool CheckForNullProperties(List<RoomModel> rooms)
+      {
+          return rooms.Any(room => room.GetType()
+                            .GetProperties()
+                            .Select(pi => pi.GetValue(room))
+                            .Any(value => value == null));
+      }
+
+      */
     }
 }
 

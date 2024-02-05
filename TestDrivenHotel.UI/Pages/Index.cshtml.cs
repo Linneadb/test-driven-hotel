@@ -6,22 +6,35 @@ namespace TestDrivenHotel.UI.Pages
     public class IndexModel : PageModel
     {
 
-        public List<DAL.Models.RoomModel>? FilteredRooms { get; set; }
+        public List<DAL.Models.RoomModel>? AvailableRooms { get; set; }
 
 
 
         public void OnGet()
         {
-            List<DAL.Models.BookingModel> bookings = DAL.Bookings.GetBookingList();
 
         }
 
         public void OnPost()
         {
             BookingLogic bookingLogic = new();
-            string input1 = "Balcony";
-            //FilteredRooms = bookingLogic.FilterRooms(input1);
-            bookingLogic.FilterRooms(FilteredRooms, input1, 1);
+
+            string featureInput = "Balcony";
+            int guestInput = 2;
+            DateTime arrivalDateInput = new DateTime(24, 12, 13);
+            DateTime departureDateInput = new DateTime(24, 12, 17);
+
+            List<DAL.Models.BookingModel> bookings = DAL.Bookings.GetBookingList();
+            List<DAL.Models.RoomModel> rooms = DAL.Rooms.GetRoomList();
+
+            try
+            {
+                AvailableRooms = bookingLogic.GetAvailableRooms(rooms, bookings, featureInput, guestInput, arrivalDateInput, departureDateInput);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            };
         }
     }
 }
