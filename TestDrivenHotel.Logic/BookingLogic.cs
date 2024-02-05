@@ -49,7 +49,7 @@ namespace TestDrivenHotel.Logic
         public List<RoomModel>? FilterFeatures(List<RoomModel> rooms, string feature)
         {
             if (String.IsNullOrEmpty(feature))
-                throw new ArgumentNullException("There is not feature given");
+                throw new ArgumentNullException("There is no feature given");
 
             switch (feature)
             {
@@ -57,6 +57,8 @@ namespace TestDrivenHotel.Logic
                     return rooms.Where(r => r.Seaview).ToList();
                 case "Balcony":
                     return rooms.Where(r => r.Balcony).ToList();
+                case "None":
+                    return rooms;
                 default:
                     return new List<RoomModel>();
             }

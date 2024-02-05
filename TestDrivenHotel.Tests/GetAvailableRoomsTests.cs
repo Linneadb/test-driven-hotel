@@ -5,6 +5,9 @@ namespace TestDrivenHotel.Tests
 {
     public class GetAvailableRoomsTests
     {
+
+        //Test list of RoomModel
+
         List<DAL.Models.RoomModel> testRooms = new List<DAL.Models.RoomModel>
         {
             new DAL.Models.RoomModel
@@ -36,38 +39,65 @@ namespace TestDrivenHotel.Tests
             },
         };
 
+        // **** FILTER FEATURES TESTS *****
 
         [Fact]
-        public void FilterFeatures_ShouldReturnRoomsWithASeaview()
+        public void FilterFeatures_Seaview_ShouldReturnOneRoomsWithASeaview()
         {
             //Given
+            string feature = "Seaview";
+            List<DAL.Models.RoomModel> rooms = testRooms;
             BookingLogic bookingLogic = new();
 
             //When
-            var actualRooms = bookingLogic.FilterFeatures(testRooms, "Seaview");
-            var expectedRooms = testRooms.Where(f => f.Seaview == true).ToList();
+            var actualRooms = bookingLogic.FilterFeatures(rooms, feature);
+            var expectedRooms = rooms.Where(f => f.Seaview == true).ToList();
 
             //Then
             actualRooms.Should().BeEquivalentTo(expectedRooms);
             actualRooms.Should().BeOfType<List<DAL.Models.RoomModel>>();
             actualRooms.Should().NotBeNullOrEmpty();
+            actualRooms.Should().HaveCount(1);
         }
 
         [Fact]
-        public void FilterFeatures_ShouldReturnRoomsWithABalcony()
+        public void FilterFeatures_Balcony_ShouldReturnTwoRoomsWithABalcony()
         {
             //Given
-            List<DAL.Models.RoomModel> roomsToSelectFrom = DAL.Rooms.GetRoomList();
+            string feature = "Balcony";
+            List<DAL.Models.RoomModel> rooms = testRooms;
             BookingLogic bookingLogic = new();
 
             //When
-            var expectedRooms = roomsToSelectFrom.Where(f => f.Balcony == true).ToList();
-            var actualRooms = bookingLogic.FilterFeatures(roomsToSelectFrom, "Balcony");
+            var actualRooms = bookingLogic.FilterFeatures(rooms, feature);
+            var expectedRooms = rooms.Where(f => f.Balcony == true).ToList();
+
 
             //Then
             actualRooms.Should().BeEquivalentTo(expectedRooms);
             actualRooms.Should().BeOfType<List<DAL.Models.RoomModel>>();
             actualRooms.Should().NotBeNullOrEmpty();
+            actualRooms.Should().HaveCount(2);
+        }
+
+        [Fact]
+        public void FilterFeatures_None_ShouldReturnAllTestRooms()
+        {
+            //Given
+            string feature = "None";
+            List<DAL.Models.RoomModel> rooms = testRooms;
+            BookingLogic bookingLogic = new();
+
+            //When
+            var actualRooms = bookingLogic.FilterFeatures(rooms, feature);
+            var expectedRooms = rooms;
+
+
+            //Then
+            actualRooms.Should().BeEquivalentTo(expectedRooms);
+            actualRooms.Should().BeOfType<List<DAL.Models.RoomModel>>();
+            actualRooms.Should().NotBeNullOrEmpty();
+            actualRooms.Should().HaveCount(3);
         }
 
         [Fact]
@@ -95,10 +125,11 @@ namespace TestDrivenHotel.Tests
                 Balcony = true,
                 },
             };
+            string feature = "Seaview";
             BookingLogic bookingLogic = new();
 
             //When
-            var actualRooms = bookingLogic.FilterFeatures(roomsWithNoSeaview, "Seaview");
+            var actualRooms = bookingLogic.FilterFeatures(roomsWithNoSeaview, feature);
 
             //Then
             actualRooms.Should().BeEmpty();
@@ -130,10 +161,11 @@ namespace TestDrivenHotel.Tests
                 Balcony = false,
                 },
             };
+            string feature = "Balcony";
             BookingLogic bookingLogic = new();
 
             //When
-            var actualRooms = bookingLogic.FilterFeatures(roomsWithNoBalcony, "Balcony");
+            var actualRooms = bookingLogic.FilterFeatures(roomsWithNoBalcony, feature);
 
             //Then
             actualRooms.Should().BeEmpty();
@@ -145,10 +177,11 @@ namespace TestDrivenHotel.Tests
         {
             //Given
             List<DAL.Models.RoomModel> emptyRoomsList = new();
+            string feature = "Balcony";
             BookingLogic bookingLogic = new();
 
             //When
-            var emptyList = bookingLogic.FilterFeatures(emptyRoomsList, "Balcony");
+            var emptyList = bookingLogic.FilterFeatures(emptyRoomsList, feature);
 
             //Then
             emptyList.Should().BeEmpty();
@@ -157,18 +190,151 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void FilterFeatures_nullList_ShouldThrowNullArgumentException()
+        public void FilterFeatures_nullList_ShouldThrowArgumentNullException()
         {
             //Given
             List<DAL.Models.RoomModel>? nullRoomsList = null;
+            string feature = "Balcony";
             BookingLogic bookingLogic = new();
 
             //When
-            Action nullListTest = () => bookingLogic.FilterFeatures(nullRoomsList, "Balcony");
+            Action nullListTest = () => bookingLogic.FilterFeatures(nullRoomsList, feature);
 
             //Then
             nullListTest.Should().Throw<ArgumentNullException>();
         }
+
+        [Fact]
+        public void FilterFeatures_InvalidFeature_ShouldReturnEmptyList()
+        {
+            //Given
+            string feature = "Banana";
+            List<DAL.Models.RoomModel> rooms = testRooms;
+            BookingLogic bookingLogic = new();
+
+            //When
+            var actualRooms = bookingLogic.FilterFeatures(rooms, feature);
+
+            //Then
+            actualRooms.Should().BeEmpty();
+            actualRooms.Should().BeOfType<List<DAL.Models.RoomModel>>();
+        }
+
+        [Fact]
+        public void FilterFeatures_NullFeature_ShouldThrowArgumnentNullException()
+        {
+            //Given
+            string? nullFeature = null;
+            List<DAL.Models.RoomModel> rooms = testRooms;
+            BookingLogic bookingLogic = new();
+
+            //When
+            Action nullFeatureTest = () => bookingLogic.FilterFeatures(rooms, nullFeature);
+
+            //Then
+            nullFeatureTest.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void FilterFeatures_EmptyFeature_ShouldThrowArgumnentNullException()
+        {
+            //Given
+            string? emptyFeature = "";
+            List<DAL.Models.RoomModel> rooms = testRooms;
+            BookingLogic bookingLogic = new();
+
+            //When
+            Action nullFeatureTest = () => bookingLogic.FilterFeatures(rooms, emptyFeature);
+
+            //Then
+            nullFeatureTest.Should().Throw<ArgumentNullException>();
+        }
+
+        // **** FILTER GUESTS TESTS *****
+
+        [Fact]
+        public void FilterGuests_EmptyList_ShouldReturnEmptyList()
+        {
+            //Given
+            List<DAL.Models.RoomModel> emptyRoomsList = new();
+            int guests = 2;
+            BookingLogic bookingLogic = new();
+
+            //When
+            var emptyList = bookingLogic.FilterGuests(emptyRoomsList, guests);
+
+            //Then
+            emptyList.Should().BeEmpty();
+            emptyList.Should().BeOfType<List<DAL.Models.RoomModel>>();
+            emptyList.Should().NotBeNull();
+        }
+
+        [Fact]
+        public void FilterGuests_nullList_ShouldThrowArgumentNullException()
+        {
+            //Given
+            List<DAL.Models.RoomModel>? nullRoomsList = null;
+            int guests = 2;
+            BookingLogic bookingLogic = new();
+
+            //When
+            Action nullListTest = () => bookingLogic.FilterGuests(nullRoomsList, guests);
+
+            //Then
+            nullListTest.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void FilterGuests_NormalNumber_ShouldReturnOneRoom()
+        {
+            //Given
+            int guests = 3;
+            List<DAL.Models.RoomModel> rooms = testRooms;
+            BookingLogic bookingLogic = new();
+
+            //When
+            var actualRooms = bookingLogic.FilterGuests(rooms, guests);
+            var expectedRooms = rooms.Where(r => r.MaxNumberOfGuests >= guests).ToList();
+
+            //Then
+            actualRooms.Should().BeEquivalentTo(expectedRooms);
+            actualRooms.Should().BeOfType<List<DAL.Models.RoomModel>>();
+            actualRooms.Should().NotBeNullOrEmpty();
+            actualRooms.Should().HaveCount(1);
+        }
+
+        [Fact]
+        public void FilterGuests_LargeNumber_ShouldReturnEmptyList()
+        {
+            //Given
+            int guests = 798637904;
+            List<DAL.Models.RoomModel> rooms = testRooms;
+            BookingLogic bookingLogic = new();
+
+            //When
+            var actualRooms = bookingLogic.FilterGuests(rooms, guests);
+
+            //Then
+            actualRooms.Should().BeEmpty();
+            actualRooms.Should().BeOfType<List<DAL.Models.RoomModel>>();
+        }
+
+        [Fact]
+        public void FilterGuests_NullGuests_ShouldThrowArgumnentNullException()
+        {
+            //Given
+            int nullGuests = 0;
+            List<DAL.Models.RoomModel> rooms = testRooms;
+            BookingLogic bookingLogic = new();
+
+            //When
+            Action nullFeatureTest = () => bookingLogic.FilterGuests(rooms, nullGuests);
+
+            //Then
+            nullFeatureTest.Should().Throw<ArgumentNullException>();
+        }
+
+        // **** FILTER DATES TESTS ****
 
         /*
         [Fact]
@@ -194,6 +360,19 @@ namespace TestDrivenHotel.Tests
             //Then
             nullPropTest.Should().Throw<NullReferenceException>();
         }
-        */
+
+          public List<RoomModel>? FilterGuests(List<RoomModel> rooms, int guests)
+        {
+            if (guests <= 0)
+                throw new ArgumentNullException("There is no number of guests sumbitted");
+
+            return rooms.Where(r => r.MaxNumberOfGuests >= guests).ToList();
+
+        }
+
+
+         */
+
+
     }
 }
