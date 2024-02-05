@@ -72,36 +72,82 @@ namespace TestDrivenHotel.Logic
             return rooms.Where(r => r.MaxNumberOfGuests >= guests).ToList();
 
         }
-        public List<RoomModel>? FilterDates(List<RoomModel> rooms, List<BookingModel> bookings, DateTime arrivalDate, DateTime departureDate)
+
+        public List<RoomModel>? FilterDates(List<RoomModel> rooms, List<BookingModel> bookings, DateTime startDate, DateTime endDate)
         {
-            List<BookingModel> availableBookings = bookings.Where(b => (b.EndDate < arrivalDate) || (b.StartDate > departureDate)).ToList();
+            if (bookings == null || bookings.Count < 1)
+                throw new ArgumentNullException("There is no bookingList to compare dates to");
 
-            List<int> availableRoomIds = availableBookings.Select(b => b.RoomId).ToList();
+            /* List<BookingModel> availableBookings = bookings
+                 .Where(b => b.EndDate <= arrivalDate && b.StartDate >= arrivalDate && b.EndDate <= departureDate && b.StartDate >= arrivalDate)
+                 .ToList();
 
-            return rooms.Where(r => availableRoomIds.Contains(r.Id)).ToList();
+             List<int> availableRoomIds = availableBookings.Select(b => b.RoomId).ToList();
+
+             return rooms.Where(r => availableRoomIds.Contains(r.Id)).ToList();
+
+
+             */
+
+            List<BookingModel> overlappingBookings = bookings
+                // .Where(b => !(b.EndDate >= arrivalDate && b.StartDate <= departureDate))
+                .Where(b => (b.StartDate <= startDate) && (endDate <= b.EndDate)) // new dates are WITHIN booking range
+                                                                                  //|| (b.StartDate <= startDate && startDate <= b.EndDate))
+                .ToList();
+
+            List<int> overlappingRoomIds = overlappingBookings.Select(b => b.RoomId).ToList();
+
+            if (overlappingRoomIds == null || overlappingRoomIds.Count > 0)
+                throw new ArgumentOutOfRangeException();
+
+            List<RoomModel> availableRooms = rooms
+                    .Where(r => !overlappingRoomIds.Contains(r.Id))
+                    .ToList();
+
+            return availableRooms;
 
         }
-
-
         /*
-      public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
-      {
-          return dt >= start && dt < end;
-      }
+        public bool IsBooked(List<BookingModel> bookings, DateTime start, DateTime end)
+        {
+
+            foreach (BookingModel b in bookings)
+            {
+                if (b.StartDate <= start && start <= b.EndDate) 
+                    
+
+            }
+
+        }
+            
+            // if ((arrivalDate <= EndDate) && (StartDate <= departureDate))
+            //   overlaps = true;
+        
 
 
-          if (CheckForNullProperties(rooms))
-              throw new NullReferenceException("There are rooms that contain null values");
+    }
 
-      private bool CheckForNullProperties(List<RoomModel> rooms)
-      {
-          return rooms.Any(room => room.GetType()
-                            .GetProperties()
-                            .Select(pi => pi.GetValue(room))
-                            .Any(value => value == null));
-      }
 
-      */
+    /*
+  public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
+  {
+      return dt >= start && dt < end;
+  }
+
+
+      if (CheckForNullProperties(rooms))
+          throw new NullReferenceException("There are rooms that contain null values");
+
+  private bool CheckForNullProperties(List<RoomModel> rooms)
+  {
+      return rooms.Any(room => room.GetType()
+                        .GetProperties()
+                        .Select(pi => pi.GetValue(room))
+                        .Any(value => value == null));
+  }
+
+  */
     }
 }
+
 
