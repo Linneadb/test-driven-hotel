@@ -78,71 +78,37 @@ namespace TestDrivenHotel.Logic
             if (bookings == null || bookings.Count < 1)
                 throw new ArgumentNullException("There is no bookingList to compare dates to");
 
-            /* List<BookingModel> availableBookings = bookings
-                 .Where(b => b.EndDate <= arrivalDate && b.StartDate >= arrivalDate && b.EndDate <= departureDate && b.StartDate >= arrivalDate)
-                 .ToList();
-
-             List<int> availableRoomIds = availableBookings.Select(b => b.RoomId).ToList();
-
-             return rooms.Where(r => availableRoomIds.Contains(r.Id)).ToList();
-
-
-             */
-
             List<BookingModel> overlappingBookings = bookings
-                // .Where(b => !(b.EndDate >= arrivalDate && b.StartDate <= departureDate))
-                .Where(b => !(b.StartDate >= endDate || startDate >= b.EndDate)) //(b.StartDate <= startDate) && (endDate <= b.EndDate)) ||
+                .Where(b => !(b.StartDate >= endDate || startDate >= b.EndDate))
                 .ToList();
 
             List<int> overlappingRoomIds = overlappingBookings.Select(b => b.RoomId).ToList();
 
-            List<RoomModel> availableRooms = rooms
+            return rooms
                     .Where(r => !overlappingRoomIds.Contains(r.Id))
                     .ToList();
-
-            return availableRooms;
-
         }
+
+
         /*
-        public bool IsBooked(List<BookingModel> bookings, DateTime start, DateTime end)
-        {
-
-            foreach (BookingModel b in bookings)
-            {
-                if (b.StartDate <= start && start <= b.EndDate) 
-                    
-
-            }
-
-        }
-            
-            // if ((arrivalDate <= EndDate) && (StartDate <= departureDate))
-            //   overlaps = true;
-        
+      public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
+      {
+          return dt >= start && dt < end;
+      }
 
 
-    }
+          if (CheckForNullProperties(rooms))
+              throw new NullReferenceException("There are rooms that contain null values");
 
+      private bool CheckForNullProperties(List<RoomModel> rooms)
+      {
+          return rooms.Any(room => room.GetType()
+                            .GetProperties()
+                            .Select(pi => pi.GetValue(room))
+                            .Any(value => value == null));
+      }
 
-    /*
-  public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
-  {
-      return dt >= start && dt < end;
-  }
-
-
-      if (CheckForNullProperties(rooms))
-          throw new NullReferenceException("There are rooms that contain null values");
-
-  private bool CheckForNullProperties(List<RoomModel> rooms)
-  {
-      return rooms.Any(room => room.GetType()
-                        .GetProperties()
-                        .Select(pi => pi.GetValue(room))
-                        .Any(value => value == null));
-  }
-
-  */
+      */
     }
 }
 
