@@ -377,8 +377,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> emptyRoomsList = new();
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(24, 12, 13);
-            DateTime departure = new DateTime(24, 12, 17);
+            DateTime arrival = new DateTime(2024, 12, 13);
+            DateTime departure = new DateTime(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -396,8 +396,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel>? nullRoomsList = null;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(24, 12, 13);
-            DateTime departure = new DateTime(24, 12, 17);
+            DateTime arrival = new DateTime(2024, 12, 13);
+            DateTime departure = new DateTime(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -413,8 +413,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? EmptyBookingsList = new();
-            DateTime arrival = new DateTime(24, 12, 13);
-            DateTime departure = new DateTime(24, 12, 17);
+            DateTime arrival = new DateTime(2024, 12, 13);
+            DateTime departure = new DateTime(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -430,8 +430,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? nullBookingsList = null;
-            DateTime arrival = new DateTime(24, 12, 13);
-            DateTime departure = new DateTime(24, 12, 17);
+            DateTime arrival = new DateTime(2024, 12, 13);
+            DateTime departure = new DateTime(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -442,13 +442,13 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void FilterDates_AvailableDates_ShouldReturnThreeAvailableRoom()
+        public void FilterDates_AvailableDates_ShouldReturnThreeAvailableRooms()
         {
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(24, 12, 13);
-            DateTime departure = new DateTime(24, 12, 17);
+            DateTime arrival = new DateTime(2024, 12, 13);
+            DateTime departure = new DateTime(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -462,13 +462,53 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void FilterDates_DatesWithinBookedDates_ShouldReturnEmptyList()  //new dates are WITHIN booking range
+        public void FilterDates_DatesWithinBookedDates_ShouldReturnTwoAvailableRooms()  //new dates are WITHIN booking range
         {
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(24, 4, 11);
-            DateTime departure = new DateTime(24, 4, 12);
+            DateTime arrival = new DateTime(2024, 4, 11);
+            DateTime departure = new DateTime(2024, 4, 12);
+            BookingLogic bookingLogic = new();
+
+            //When
+            var actualRooms = bookingLogic.FilterDates(rooms, bookings, arrival, departure);
+
+            //Then
+            actualRooms.Should().NotBeEmpty();
+            actualRooms.Should().NotBeNull();
+            actualRooms.Should().BeOfType<List<RoomModel>>();
+            actualRooms.Should().HaveCount(2);
+        }
+
+        [Fact]
+        public void FilterDates_DatesOverlappingBookedDates_ShouldReturnTwoAvailableRooms()
+        {
+            //Given
+            List<RoomModel> rooms = testRooms;
+            List<BookingModel>? bookings = testBookings;
+            DateTime arrival = new DateTime(2024, 4, 13);
+            DateTime departure = new DateTime(2024, 4, 17);
+            BookingLogic bookingLogic = new();
+
+            //When
+            var actualRooms = bookingLogic.FilterDates(rooms, bookings, arrival, departure);
+
+            //Then
+            actualRooms.Should().NotBeEmpty();
+            actualRooms.Should().NotBeNull();
+            actualRooms.Should().BeOfType<List<RoomModel>>();
+            actualRooms.Should().HaveCount(2);
+        }
+
+        [Fact]
+        public void FilterDates_DatesOverBookedDates_ShouldReturnEmptyList()
+        {
+            //Given
+            List<RoomModel> rooms = testRooms;
+            List<BookingModel>? bookings = testBookings;
+            DateTime arrival = new DateTime(2024, 2, 4);
+            DateTime departure = new DateTime(2024, 4, 16);
             BookingLogic bookingLogic = new();
 
             //When
@@ -478,46 +518,6 @@ namespace TestDrivenHotel.Tests
             actualRooms.Should().BeEmpty();
             actualRooms.Should().NotBeNull();
             actualRooms.Should().BeOfType<List<RoomModel>>();
-        }
-
-        [Fact]
-        public void FilterDates_DatesOverlappingBookedDates_ShouldReturnTwoAvailableRoom()
-        {
-            //Given
-            List<RoomModel> rooms = testRooms;
-            List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(24, 4, 13);
-            DateTime departure = new DateTime(24, 4, 17);
-            BookingLogic bookingLogic = new();
-
-            //When
-            var actualRooms = bookingLogic.FilterDates(rooms, bookings, arrival, departure);
-
-            //Then
-            actualRooms.Should().NotBeEmpty();
-            actualRooms.Should().NotBeNull();
-            actualRooms.Should().BeOfType<List<RoomModel>>();
-            actualRooms.Should().HaveCount(2);
-        }
-
-        [Fact]
-        public void FilterDates_DatesOverBookedDates_ShouldReturnTwoAvailableRoom()
-        {
-            //Given
-            List<RoomModel> rooms = testRooms;
-            List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(24, 4, 8);
-            DateTime departure = new DateTime(24, 4, 17);
-            BookingLogic bookingLogic = new();
-
-            //When
-            var actualRooms = bookingLogic.FilterDates(rooms, bookings, arrival, departure);
-
-            //Then
-            actualRooms.Should().NotBeEmpty();
-            actualRooms.Should().NotBeNull();
-            actualRooms.Should().BeOfType<List<RoomModel>>();
-            actualRooms.Should().HaveCount(2);
         }
 
 

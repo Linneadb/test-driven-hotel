@@ -91,14 +91,10 @@ namespace TestDrivenHotel.Logic
 
             List<BookingModel> overlappingBookings = bookings
                 // .Where(b => !(b.EndDate >= arrivalDate && b.StartDate <= departureDate))
-                .Where(b => (b.StartDate <= startDate) && (endDate <= b.EndDate)) // new dates are WITHIN booking range
-                                                                                  //|| (b.StartDate <= startDate && startDate <= b.EndDate))
+                .Where(b => !(b.StartDate >= endDate || startDate >= b.EndDate)) //(b.StartDate <= startDate) && (endDate <= b.EndDate)) ||
                 .ToList();
 
             List<int> overlappingRoomIds = overlappingBookings.Select(b => b.RoomId).ToList();
-
-            if (overlappingRoomIds == null || overlappingRoomIds.Count > 0)
-                throw new ArgumentOutOfRangeException();
 
             List<RoomModel> availableRooms = rooms
                     .Where(r => !overlappingRoomIds.Contains(r.Id))
