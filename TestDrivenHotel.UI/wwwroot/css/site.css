@@ -20,3 +20,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.room-card {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.room-image {
+    width: 100%; /* Ensure the image takes up the full width of its container */
+    max-height: 150px; /* Adjust the maximum height of the thumbnail */
+    object-fit: contain; /* Ensure the image fits within the container without distortion */
+    margin-bottom: 10px;
+}

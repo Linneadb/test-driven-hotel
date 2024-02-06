@@ -8,18 +8,16 @@ namespace TestDrivenHotel.UI.Pages
     [BindProperties]
     public class IndexModel : PageModel
     {
-
-
         public List<DAL.Models.RoomModel>? AvailableRooms { get; set; } //Denna ska vidare till nasta webbsida i OnGet:en!
 
         [Required]
         public string? Feature { get; set; }
         [Required]
-        public int Guest { get; set; }
+        public int Guests { get; set; }
         [Required]
-        public DateTime ArrivalDate { get; set; }
+        public DateTime ArrivalDate { get; set; } = DateTime.Now;
         [Required]
-        public DateTime DepartureDate { get; set; }
+        public DateTime DepartureDate { get; set; } = DateTime.Now.AddDays(1);
 
         public string Message { get; set; }
         public string MessageToGet { get; set; }
@@ -34,38 +32,29 @@ namespace TestDrivenHotel.UI.Pages
 
             BookingLogic bookingLogic = new();
 
-            Feature = "Balcony";
-            Guest = 2;
-            ArrivalDate = new DateTime(24, 12, 13);
-            DepartureDate = new DateTime(24, 12, 17);
-
-
             List<DAL.Models.BookingModel> bookings = DAL.Bookings.GetBookingList();
             List<DAL.Models.RoomModel> rooms = DAL.Rooms.GetRoomList();
 
             try
             {
-                AvailableRooms = bookingLogic.GetAvailableRooms(rooms, bookings, Feature, Guest, ArrivalDate, DepartureDate);
+                AvailableRooms = bookingLogic.GetAvailableRooms(rooms, bookings, Feature, Guests, ArrivalDate, DepartureDate);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 Message = ex.Message;
+                return Page();
             };
 
-
-            //if available romms >=1 => till nasta sida, annars vissa meddelande
-            if (AvailableRooms.Count >= 1 && ModelState.IsValid)
+            if (AvailableRooms.Count >= 1)
             {
-                return RedirectToPage("/AvailableRooms", new { Feature, Guest, ArrivalDate, DepartureDate });     // SKicka data till ny sida och gor filtreringen dar igen
+                return RedirectToPage("/AvailableRooms", new { Feature, Guests, ArrivalDate, DepartureDate });
             }
             else
             {
-                if (Message == null)
-                {
-                    Message = "There are no available rooms for your criteria";
-                }
+                Message = "There are no available rooms for your criteria";
                 return Page();
             }
+
 
         }
     }

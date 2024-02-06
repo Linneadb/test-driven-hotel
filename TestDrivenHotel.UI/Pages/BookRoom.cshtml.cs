@@ -4,27 +4,28 @@ using TestDrivenHotel.Logic;
 
 namespace TestDrivenHotel.UI.Pages
 {
-    public class BookRoomModel : PageModel
-    {
-        public int RoomId { get; set; }
-        public double Price { get; set; }
+	public class BookRoomModel : PageModel
+	{
+		public int RoomId { get; set; }
+		public double Price { get; set; }
 
-        public string Message { get; set; }
-        public void OnGet(int roomId, int guests)
-        {
-            RoomId = roomId;
-            List<RoomModel> rooms = DAL.Rooms.GetRoomList();
-            RoomModel? roomToBook = rooms.FirstOrDefault(r => r.Id == roomId);
+		public string Message { get; set; }
+		public void OnGet(int roomId, int guests)
+		{
+			// Om det finns en lank pa forra sidan sa kan man skicka med parametrar med asp-route
+			RoomId = roomId;
+			List<RoomModel> rooms = DAL.Rooms.GetRoomList();
+			RoomModel? roomToBook = rooms.FirstOrDefault(r => r.Id == roomId);
 
-            BookingLogic bookingLogic = new();
-            Price = bookingLogic.CalculatePrice(roomToBook, 2);
-        }
+			BookingLogic bookingLogic = new();
+			Price = bookingLogic.CalculatePrice(roomToBook, 2);
+		}
 
-        //public ActionResult OnPost()
-        //{ 
+		//public ActionResult OnPost()
+		//{ 
 
-        //booked Room = CreateBooking(roomToBook, )
+		//booked Room = CreateBooking(roomToBook, )
 
-        //}
-    }
+		//}
+	}
 }

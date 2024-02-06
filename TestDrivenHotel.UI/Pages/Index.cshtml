@@ -5,51 +5,38 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">First instance of page: "click publish"</h1>
-    
+    <h1 class="display-4">Seaside Resort Hotel</h1>
+    <h2> Find your new favorite holiday getaway! Book a room today!</h2>
+
+<form method="post">
+    <select asp-for="@Model.Feature">
+        <option type="text" value="None">No selection</option>
+        <option type="text" value="Balcony">Room with a balcony</option>
+        <option type="text "value="Seaview">Room with a seaview</option>
+    </select>
+
+    <select asp-for="@Model.Guests">
+        <option type="number" value=1>1 guest</option>
+        <option type="number" value=2>2 guest</option>
+        <option type="number" value=3>3 guest</option>
+        <option type="number" value=4>4 guest</option>
+        <option type="number" value=5>5 guest</option>
+        <option type="number" value=6>6 guest</option>
+        <option type="number" value=7>7 guest</option>
+    </select>
+
+    <label for="start">Arrival date:</label>
+        <input type="date" asp-for="@Model.ArrivalDate" min="2024-02-02" max="2024-12-31" />
+
+    <label for="end">Departure date:</label>
+        <input type="date" asp-for="@Model.DepartureDate" min="2024-02-02" max="2024-12-31" />
+
+    <input class="btn btn-primary" type="submit" value="Search available rooms"/>
+</form>
+
     @if (Model.Message != null)
     {
         <p>@Model.Message </p>
-
     }
-
-
-    
 </div>
 
-
-
-<select asp-for:"@Model.Feature">
-    <option type="text" value="None">No selection</option>
-    <option type="text" value="Balcony">Room with a balcony</option>
-    <option type="text "value="Seaview">Room with a seaview</option>
-</select>
-
-<select asp-for:"@Model.Guests">
-    <option type="number" value=1>1 guest</option>
-    <option type="number" value=2>2 guest</option>
-    <option type="number" value=3>3 guest</option>
-    <option type="number" value=4>4 guest</option>
-    <option type="number" value=5>5 guest</option>
-    <option type="number" value=6>6 guest</option>
-    <option type="number" value=7>7 guest</option>
-</select>
-
-<label for="start">Start date:</label>
-<input type="date" asp-for="@Model.ArrivalDate" id="start" name="booking-start" value="2024-02-01" min="2024-02-01" max="2024-12-31" />
-
-<label for="end">End date:</label>
-<input type="date" asp-for="@Model.DepartureDate" id="end" name="booking-end" value="2024-02-02" min="2024-02-02" max="2024-12-31" />
-
-
-
-@if (Model.AvailableRooms != null)
-{
-    //html-koden att visa efter formularet ar postat
-
-    //input ska vara text, number och date
-
-    //Guest select
-
-    //submit and form with method "post"
-}
