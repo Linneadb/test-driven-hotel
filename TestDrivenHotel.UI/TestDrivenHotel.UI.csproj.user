@@ -3,5 +3,7 @@
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI\Properties\PublishProfiles\testdriven-hotel-linnea - Zip Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <RazorPage_SelectedScaffolderID>RazorPageScaffolder</RazorPage_SelectedScaffolderID>
+    <RazorPage_SelectedScaffolderCategoryPath>root/Common/RazorPage</RazorPage_SelectedScaffolderCategoryPath>
   </PropertyGroup>
 </Project>

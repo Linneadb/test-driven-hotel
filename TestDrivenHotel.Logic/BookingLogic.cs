@@ -24,10 +24,21 @@ namespace TestDrivenHotel.Logic
             return totalPrice;
         }
 
-        public BookingModel CreateBooking()
+        public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")
         {
-            throw new NotImplementedException();
-            //Should add booking to BookingList
+
+
+            BookingModel newBooking = new BookingModel
+            {
+                Id = 10,
+                RoomId = room.Id,
+                StartDate = arrivalDate,
+                EndDate = departureDate,
+                Created = DateTime.Now,
+                Comment = comment
+            };
+
+            return newBooking;
         }
 
 
@@ -79,7 +90,7 @@ namespace TestDrivenHotel.Logic
                 throw new ArgumentNullException("There is no bookingList to compare dates to");
 
             List<BookingModel> overlappingBookings = bookings
-                .Where(b => !(b.StartDate >= endDate || startDate >= b.EndDate))
+                .Where(b => startDate < b.EndDate && endDate > b.StartDate)
                 .ToList();
 
             List<int> overlappingRoomIds = overlappingBookings.Select(b => b.RoomId).ToList();
