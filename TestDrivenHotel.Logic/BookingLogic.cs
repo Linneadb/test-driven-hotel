@@ -87,8 +87,15 @@ namespace TestDrivenHotel.Logic
 
         public List<RoomModel>? FilterDates(List<RoomModel> rooms, List<BookingModel> bookings, DateTime startDate, DateTime endDate)
         {
+
             if (bookings == null || bookings.Count < 1)
-                throw new ArgumentNullException("There is no bookingList to compare dates to");
+                throw new ArgumentNullException("There is no booking list to compare dates to");
+
+            if (endDate < startDate)
+                throw new ArgumentException("Departure date must be later than arrival date");
+
+            if (startDate < DateTime.Today)
+                throw new ArgumentException("Arrival date must be in the future");
 
             List<BookingModel> overlappingBookings = bookings
                 .Where(b => startDate < b.EndDate && endDate > b.StartDate)

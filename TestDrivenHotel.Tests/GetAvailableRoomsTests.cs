@@ -48,8 +48,8 @@ namespace TestDrivenHotel.Tests
             {
                 Id = 1,
                 RoomId = 1,
-                StartDate = new DateTime(2024, 2, 5),
-                EndDate = new DateTime(2024, 2, 10),
+                StartDate = new DateTime(2024, 3, 5),
+                EndDate = new DateTime(2024, 3, 10),
                 Created = DateTime.Now,
                 Comment = "Honeymoon getaway"
             },
@@ -57,8 +57,8 @@ namespace TestDrivenHotel.Tests
             {
                 Id = 2,
                 RoomId = 2,
-                StartDate = new DateTime(2024, 3, 15),
-                EndDate = new DateTime(2024, 3, 20),
+                StartDate = new DateTime(2024, 4, 15),
+                EndDate = new DateTime(2024, 4, 20),
                 Created = DateTime.Now,
                 Comment = "Business conference"
             },
@@ -66,8 +66,8 @@ namespace TestDrivenHotel.Tests
             {
                 Id = 3,
                 RoomId = 3,
-                StartDate = new DateTime(2024, 4, 10),
-                EndDate = new DateTime(2024, 4, 15),
+                StartDate = new DateTime(2024, 5, 10),
+                EndDate = new DateTime(2024, 5, 15),
                 Created = DateTime.Now,
                 Comment = "Family vacation"
             },
@@ -425,7 +425,7 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void FilterDates_nullBookingsList_ShouldThrowArgumentNullException()
+        public void FilterDates_NullBookingsList_ShouldThrowArgumentNullException()
         {
             //Given
             List<RoomModel> rooms = testRooms;
@@ -462,13 +462,13 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void FilterDates_DatesWithinBookedDates_ShouldReturnTwoAvailableRooms()  //new dates are WITHIN booking range
+        public void FilterDates_DatesWithinBookedDates_ShouldReturnTwoAvailableRooms()
         {
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 4, 11);
-            DateTime departure = new DateTime(2024, 4, 12);
+            DateTime arrival = new DateTime(2024, 4, 17);
+            DateTime departure = new DateTime(2024, 4, 18);
             BookingLogic bookingLogic = new();
 
             //When
@@ -507,8 +507,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 2, 4);
-            DateTime departure = new DateTime(2024, 4, 16);
+            DateTime arrival = new DateTime(2024, 3, 4);
+            DateTime departure = new DateTime(2024, 5, 20);
             BookingLogic bookingLogic = new();
 
             //When
@@ -520,46 +520,41 @@ namespace TestDrivenHotel.Tests
             actualRooms.Should().BeOfType<List<RoomModel>>();
         }
 
-
-
-
-
-        /*
         [Fact]
-        public void FilterFeatures_NullProperty_ShouldThrowNullReferenceException()
+        public void FilterDates_DepartureBeforeArrival_ShouldThrowArgumentException()
         {
             //Given
-            List<DAL.Models.RoomModel> roomsWithNullValue = new List<DAL.Models.RoomModel>()
-            {
-                new DAL.Models.RoomModel {
-                Id = 2,
-                Description = null,
-                Price = 400,
-                MaxNumberOfGuests = 2,
-                Seaview = false,
-                Balcony = false
-                },
-            };
+            List<RoomModel> rooms = testRooms;
+            List<BookingModel>? nullBookingsList = testBookings;
+            DateTime arrival = new DateTime(2024, 12, 17);
+            DateTime departure = new DateTime(2024, 12, 13);
             BookingLogic bookingLogic = new();
 
             //When
-            Action nullPropTest = () => bookingLogic.FilterFeatures(roomsWithNullValue, "Balcony");
+            Action datesTest = () => bookingLogic.FilterDates(rooms, nullBookingsList, arrival, departure);
 
             //Then
-            nullPropTest.Should().Throw<NullReferenceException>();
+            datesTest.Should().Throw<ArgumentException>();
         }
 
-          public List<RoomModel>? FilterGuests(List<RoomModel> rooms, int guests)
+        [Fact]
+        public void FilterDates_DatesHavePassed_ShouldThrowArgumentException()
         {
-            if (guests <= 0)
-                throw new ArgumentNullException("There is no number of guests sumbitted");
+            //Given
+            List<RoomModel> rooms = testRooms;
+            List<BookingModel>? nullBookingsList = testBookings;
+            DateTime arrival = new DateTime(2023, 12, 13);
+            DateTime departure = new DateTime(2023, 12, 17);
+            BookingLogic bookingLogic = new();
 
-            return rooms.Where(r => r.MaxNumberOfGuests >= guests).ToList();
+            //When
+            Action datesTest = () => bookingLogic.FilterDates(rooms, nullBookingsList, arrival, departure);
 
+            //Then
+            datesTest.Should().Throw<ArgumentException>();
         }
 
 
-         */
 
 
     }
