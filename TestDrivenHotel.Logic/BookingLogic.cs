@@ -1,4 +1,5 @@
 ﻿using TestDrivenHotel.DAL.Models;
+using TestDrivenHotel.DAL.Repository;
 
 namespace TestDrivenHotel.Logic
 {
@@ -26,8 +27,6 @@ namespace TestDrivenHotel.Logic
 
         public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")
         {
-
-
             BookingModel newBooking = new BookingModel
             {
                 Id = 10,
@@ -37,6 +36,8 @@ namespace TestDrivenHotel.Logic
                 Created = DateTime.Now,
                 Comment = comment
             };
+
+            ListRepository.AddBooking(newBooking);
 
             return newBooking;
         }

@@ -1,4 +1,5 @@
 ﻿@page 
+@using TestDrivenHotel.Logic
 @model TestDrivenHotel.UI.Pages.AvailableRoomsModel
 @{
 }
@@ -12,7 +13,14 @@
         <div class="card room-card">
             <div class="card-body">
                 <h5 class="card-title">@room.Description</h5>
-                <p class="card-text">Price: @room.Price SEK / night</p>
+                
+                <!-- Total price calculated based on number of guests -->
+                @{
+                    var bookingLogic = new BookingLogic();
+                    var price = bookingLogic.CalculatePrice(room, Model.Guests);
+                }
+                <p class="card-text">Price: @price SEK / night</p>
+                <p class="card-text">Number of Guests: @Model.Guests</p>
                 <p class="card-text">Max Number of Guests: @room.MaxNumberOfGuests</p>
                 @if (room.Seaview)
                 {

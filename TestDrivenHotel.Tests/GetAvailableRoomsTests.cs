@@ -9,7 +9,7 @@ namespace TestDrivenHotel.Tests
 
         //Test list of RoomModel
 
-        List<RoomModel> testRooms = new List<RoomModel>
+        List<RoomModel> testRooms = new()
         {
             new RoomModel
             {
@@ -42,7 +42,7 @@ namespace TestDrivenHotel.Tests
 
         // Test list of BookingModel
 
-        List<BookingModel> testBookings = new List<BookingModel>
+        List<BookingModel> testBookings = new()
         {
             new BookingModel
             {
@@ -139,7 +139,7 @@ namespace TestDrivenHotel.Tests
         public void FilterFeatures_NoRoomsWithSeaview_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> roomsWithNoSeaview = new List<RoomModel>()
+            List<RoomModel> roomsWithNoSeaview = new()
             {
                 new RoomModel
                 {
@@ -175,7 +175,7 @@ namespace TestDrivenHotel.Tests
         public void FilterFeatures_NoRoomsWithBalcony_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> roomsWithNoBalcony = new List<RoomModel>()
+            List<RoomModel> roomsWithNoBalcony = new()
             {
                 new RoomModel
                 {

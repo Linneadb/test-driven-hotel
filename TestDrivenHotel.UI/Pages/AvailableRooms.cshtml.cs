@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TestDrivenHotel.DAL.Models;
+using TestDrivenHotel.DAL.Repository;
 using TestDrivenHotel.Logic;
 
 namespace TestDrivenHotel.UI.Pages
@@ -29,8 +30,8 @@ namespace TestDrivenHotel.UI.Pages
 
             BookingLogic bookingLogic = new();
 
-            List<BookingModel> bookings = DAL.Bookings.GetBookingList();
-            List<RoomModel> rooms = DAL.Rooms.GetRoomList();
+            List<BookingModel> bookings = ListRepository.GetAllBookings();
+            List<RoomModel> rooms = ListRepository.GetAllRooms();
 
             try
             {

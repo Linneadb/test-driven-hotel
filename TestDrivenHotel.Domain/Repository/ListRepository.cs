@@ -1,13 +1,66 @@
 ﻿using TestDrivenHotel.DAL.Models;
 
-namespace TestDrivenHotel.DAL
+namespace TestDrivenHotel.DAL.Repository
 {
-    //Creating mock database of Rooms
-    public class Rooms
+    public class ListRepository : IRepository
     {
-        public static List<Models.RoomModel> GetRoomList()
+        public static void AddBooking(BookingModel booking)
         {
-            var rooms = new List<Models.RoomModel>
+            Bookings.Add(booking);
+        }
+
+        public static List<BookingModel> GetAllBookings()
+        {
+            return Bookings;
+        }
+
+        public static List<RoomModel>? GetAllRooms()
+        {
+            return Rooms;
+        }
+
+        public static List<BookingModel> Bookings = new List<BookingModel>
+        {
+            new BookingModel
+            {
+                Id = 1,
+                RoomId = 1,
+                StartDate = new DateTime(2024, 2, 5),
+                EndDate = new DateTime(2024, 2, 10),
+                Created = DateTime.Now,
+                Comment = "Honeymoon getaway"
+            },
+            new BookingModel
+            {
+                Id = 2,
+                RoomId = 2,
+                StartDate = new DateTime(2024, 3, 15),
+                EndDate = new DateTime(2024, 3, 20),
+                Created = DateTime.Now,
+                Comment = "Business conference"
+            },
+            new BookingModel
+            {
+                Id = 3,
+                RoomId = 3,
+                StartDate = new DateTime(2024, 4, 10),
+                EndDate = new DateTime(2024, 4, 15),
+                Created = DateTime.Now,
+                Comment = "Family vacation"
+            },
+            new BookingModel
+            {
+                Id = 4,
+                RoomId = 4,
+                StartDate = new DateTime(2024, 5, 20),
+                EndDate = new DateTime(2024, 5, 25),
+                Created = DateTime.Now,
+                Comment = "Anniversary celebration"
+            }
+        };
+
+
+        public static List<RoomModel> Rooms = new List<RoomModel>
         {
             new Models.RoomModel
             {
@@ -101,61 +154,5 @@ namespace TestDrivenHotel.DAL
             }
         };
 
-            return rooms;
-        }
     }
-
-
-    // Creating mock database of bookings
-    public class Bookings
-    {
-        // Static list of bookings as a property
-
-        public static List<BookingModel> GetBookingList()
-        {
-            var bookings = new List<BookingModel>
-        {
-            new BookingModel
-            {
-                Id = 1,
-                RoomId = 1,
-                StartDate = new DateTime(2024, 2, 5),
-                EndDate = new DateTime(2024, 2, 10),
-                Created = DateTime.Now,
-                Comment = "Honeymoon getaway"
-            },
-            new BookingModel
-            {
-                Id = 2,
-                RoomId = 2,
-                StartDate = new DateTime(2024, 3, 15),
-                EndDate = new DateTime(2024, 3, 20),
-                Created = DateTime.Now,
-                Comment = "Business conference"
-            },
-            new BookingModel
-            {
-                Id = 3,
-                RoomId = 3,
-                StartDate = new DateTime(2024, 4, 10),
-                EndDate = new DateTime(2024, 4, 15),
-                Created = DateTime.Now,
-                Comment = "Family vacation"
-            },
-            new BookingModel
-            {
-                Id = 4,
-                RoomId = 4,
-                StartDate = new DateTime(2024, 5, 20),
-                EndDate = new DateTime(2024, 5, 25),
-                Created = DateTime.Now,
-                Comment = "Anniversary celebration"
-            }
-        };
-
-            return bookings;
-        }
-    }
-
-
 }

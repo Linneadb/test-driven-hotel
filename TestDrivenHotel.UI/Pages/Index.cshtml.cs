@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using TestDrivenHotel.DAL.Models;
+using TestDrivenHotel.DAL.Repository;
 using TestDrivenHotel.Logic;
 
 namespace TestDrivenHotel.UI.Pages
@@ -8,7 +10,7 @@ namespace TestDrivenHotel.UI.Pages
     [BindProperties]
     public class IndexModel : PageModel
     {
-        public List<DAL.Models.RoomModel>? AvailableRooms { get; set; } //Denna ska vidare till nasta webbsida i OnGet:en!
+        public List<RoomModel>? AvailableRooms { get; set; } //Denna ska vidare till nasta webbsida i OnGet:en!
 
         [Required]
         public string? Feature { get; set; }
@@ -32,8 +34,8 @@ namespace TestDrivenHotel.UI.Pages
 
             BookingLogic bookingLogic = new();
 
-            List<DAL.Models.BookingModel> bookings = DAL.Bookings.GetBookingList();
-            List<DAL.Models.RoomModel> rooms = DAL.Rooms.GetRoomList();
+            List<BookingModel>? bookings = ListRepository.GetAllBookings();
+            List<RoomModel>? rooms = ListRepository.GetAllRooms();
 
             try
             {
