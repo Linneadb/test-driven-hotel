@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TestDrivenHotel.DAL.Models;
 using TestDrivenHotel.Logic;
@@ -42,26 +41,5 @@ namespace TestDrivenHotel.UI.Pages
                 Message = ex.Message;
             };
         }
-
-        public ActionResult OnPost()
-        {
-
-            //AvailableRooms.Count >= 1 &&
-            //if available romms >=1 => till nasta sida, annars vissa meddelande
-            if (ModelState.IsValid)
-            {
-                return RedirectToPage("/BookRoom", new { RoomId, Guests });     // SKicka data till bookingsidan
-            }
-            else
-            {
-
-                return Page();
-            }
-
-        }
-
-
-        //	@foreach (var room in Model.AvailableRooms) / for the frontend
-
     }
 }

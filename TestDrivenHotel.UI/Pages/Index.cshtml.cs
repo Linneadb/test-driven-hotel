@@ -45,6 +45,7 @@ namespace TestDrivenHotel.UI.Pages
                 return Page();
             };
 
+
             if (AvailableRooms.Count >= 1)
             {
                 return RedirectToPage("/AvailableRooms", new { Feature, Guests, ArrivalDate, DepartureDate });

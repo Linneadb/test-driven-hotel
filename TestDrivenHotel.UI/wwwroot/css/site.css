@@ -29,8 +29,6 @@ body {
 }
 
 .room-image {
-    width: 100%; /* Ensure the image takes up the full width of its container */
-    max-height: 150px; /* Adjust the maximum height of the thumbnail */
-    object-fit: contain; /* Ensure the image fits within the container without distortion */
+    max-height: 50px;
     margin-bottom: 10px;
 }

@@ -109,6 +109,8 @@ namespace TestDrivenHotel.DAL
     // Creating mock database of bookings
     public class Bookings
     {
+        // Static list of bookings as a property
+
         public static List<BookingModel> GetBookingList()
         {
             var bookings = new List<BookingModel>

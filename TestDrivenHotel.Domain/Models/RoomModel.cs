@@ -10,7 +10,8 @@ namespace TestDrivenHotel.DAL.Models
         public bool Seaview { get; set; }
         public bool Balcony { get; set; }
 
-        // Navigation property
-        public ICollection<BookingModel>? Bookings { get; set; }
+        //Navigation property
+
+        public List<BookingModel> Bookings { get; set; }
     }
 }

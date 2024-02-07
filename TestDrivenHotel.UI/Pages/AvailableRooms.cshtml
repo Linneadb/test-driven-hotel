@@ -1,13 +1,10 @@
-﻿@page
+﻿@page 
 @model TestDrivenHotel.UI.Pages.AvailableRoomsModel
 @{
 }
 
-
 <h1 class="mt-4 mb-4">Available Rooms</h1>
-<p> 
-
-</p>
+<div class="clearfix"></div>
 @if (Model.AvailableRooms != null)
 {
     @foreach (var room in Model.AvailableRooms)
@@ -15,7 +12,7 @@
         <div class="card room-card">
             <div class="card-body">
                 <h5 class="card-title">@room.Description</h5>
-                <p class="card-text">Price: $@room.Price / night</p>
+                <p class="card-text">Price: @room.Price SEK / night</p>
                 <p class="card-text">Max Number of Guests: @room.MaxNumberOfGuests</p>
                 @if (room.Seaview)
                 {
@@ -27,10 +24,15 @@
                     <p class="card-text"><i class="fa fa-home"></i> Balcony</p>
                     <img src="~/images/balcony.jpg" class="room-image" alt="Balcony">
                 }
-                <a href="/BookRoom?roomId=@room.Id" class="btn btn-primary">Book this room</a>
+                <div class="clearfix"></div>
+                <div class="clearfix">
+                    <a asp-page="/BookRoom" asp-route-roomId="@room.Id"
+                       asp-route-arrivalDate="@Model.ArrivalDate"
+                       asp-route-departureDate="@Model.DepartureDate" 
+                       class="btn btn-primary">Book this room</a>
+                </div>
             </div>
         </div>
     }
 }
-
 
