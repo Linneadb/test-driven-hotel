@@ -60,6 +60,6 @@ jobs:
           - name: Deploy to Azure
             uses: azure/webapps-deploy@v3.0.0
             with: 
-              app-name: 'github-action-publish-test' # Webapp-namnet finns pa portal.azure.com
+              app-name: 'testdriven-hotel-linnea' # Webapp-namnet finns pa portal.azure.com
               publish-profile: ${{ secrets.PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
               package: './publish' 
