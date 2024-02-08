@@ -2,7 +2,7 @@ name: CiCd workflow
 on:
     push:
         branches:
-            - master
+            - main
 jobs:
     test-project:
         runs-on: ubuntu-latest
