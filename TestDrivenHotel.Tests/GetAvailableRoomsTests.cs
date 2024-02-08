@@ -377,8 +377,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> emptyRoomsList = new();
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -396,8 +396,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel>? nullRoomsList = null;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -413,8 +413,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? EmptyBookingsList = new();
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -430,8 +430,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? nullBookingsList = null;
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -447,8 +447,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -467,8 +467,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 4, 17);
-            DateTime departure = new DateTime(2024, 4, 18);
+            DateTime arrival = new(2024, 4, 17);
+            DateTime departure = new(2024, 4, 18);
             BookingLogic bookingLogic = new();
 
             //When
@@ -487,8 +487,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 4, 13);
-            DateTime departure = new DateTime(2024, 4, 17);
+            DateTime arrival = new(2024, 4, 13);
+            DateTime departure = new(2024, 4, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -507,8 +507,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? bookings = testBookings;
-            DateTime arrival = new DateTime(2024, 3, 4);
-            DateTime departure = new DateTime(2024, 5, 20);
+            DateTime arrival = new(2024, 3, 4);
+            DateTime departure = new(2024, 5, 20);
             BookingLogic bookingLogic = new();
 
             //When
@@ -526,8 +526,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? nullBookingsList = testBookings;
-            DateTime arrival = new DateTime(2024, 12, 17);
-            DateTime departure = new DateTime(2024, 12, 13);
+            DateTime arrival = new(2024, 12, 17);
+            DateTime departure = new(2024, 12, 13);
             BookingLogic bookingLogic = new();
 
             //When
@@ -543,8 +543,8 @@ namespace TestDrivenHotel.Tests
             //Given
             List<RoomModel> rooms = testRooms;
             List<BookingModel>? nullBookingsList = testBookings;
-            DateTime arrival = new DateTime(2023, 12, 13);
-            DateTime departure = new DateTime(2023, 12, 17);
+            DateTime arrival = new(2023, 12, 13);
+            DateTime departure = new(2023, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -564,8 +564,8 @@ namespace TestDrivenHotel.Tests
             List<BookingModel>? bookings = testBookings;
             string feature = "None";
             int guests = 1;
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -585,8 +585,8 @@ namespace TestDrivenHotel.Tests
             List<BookingModel>? bookings = testBookings;
             string feature = "None";
             int guests = 1;
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
 
             //When
@@ -604,8 +604,8 @@ namespace TestDrivenHotel.Tests
             List<BookingModel>? bookings = testBookings;
             string feature = "None";
             int guests = 1;
-            DateTime arrival = new DateTime(2024, 4, 13);
-            DateTime departure = new DateTime(2024, 4, 17);
+            DateTime arrival = new(2024, 4, 13);
+            DateTime departure = new(2024, 4, 17);
             BookingLogic bookingLogic = new();
 
             //When

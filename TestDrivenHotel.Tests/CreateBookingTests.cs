@@ -14,7 +14,7 @@ namespace TestDrivenHotel.Tests
         public void CreateBooking_NoRoomId_ShouldThrowArgumentNullException()
         {
             //Given
-            RoomModel noIdRoom = new RoomModel
+            RoomModel noIdRoom = new()
             {
                 Id = 0,
                 Description = "Luxury Suite with Ocean View",
@@ -24,8 +24,8 @@ namespace TestDrivenHotel.Tests
                 Balcony = true
             };
 
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
 
             //When
             Action nullRoomTest = () => bookingLogic.CreateBooking(noIdRoom, arrival, departure);
@@ -39,8 +39,8 @@ namespace TestDrivenHotel.Tests
         {
             //Given
             RoomModel? nullRoom = null;
-            DateTime arrival = new DateTime(2024, 12, 13);
-            DateTime departure = new DateTime(2024, 12, 17);
+            DateTime arrival = new(2024, 12, 13);
+            DateTime departure = new(2024, 12, 17);
 
             //When
             Action nullListTest = () => bookingLogic.CreateBooking(nullRoom, arrival, departure);
@@ -53,7 +53,7 @@ namespace TestDrivenHotel.Tests
         public void CreateBooking_HasComment_ShouldReturnABooking()
         {
             //Given
-            RoomModel room = new RoomModel
+            RoomModel room = new()
             {
                 Id = 1,
                 Description = "Luxury Suite with Ocean View",
@@ -64,8 +64,8 @@ namespace TestDrivenHotel.Tests
             };
 
             string comment = "Will arrive late";
-            DateTime arrival = new DateTime(2024, 3, 5);
-            DateTime departure = new DateTime(2024, 3, 10);
+            DateTime arrival = new(2024, 3, 5);
+            DateTime departure = new(2024, 3, 10);
 
             //When
             var actualBooking = bookingLogic.CreateBooking(room, arrival, departure, comment);
@@ -79,7 +79,7 @@ namespace TestDrivenHotel.Tests
         public void CreateBooking_DepartureBeforeArrival_ShouldThrowArgumentException()
         {
             //Given
-            RoomModel room = new RoomModel
+            RoomModel room = new()
             {
                 Id = 1,
                 Description = "Luxury Suite with Ocean View",
@@ -88,8 +88,8 @@ namespace TestDrivenHotel.Tests
                 Seaview = true,
                 Balcony = true
             };
-            DateTime arrival = new DateTime(2024, 12, 17);
-            DateTime departure = new DateTime(2024, 12, 13);
+            DateTime arrival = new(2024, 12, 17);
+            DateTime departure = new(2024, 12, 13);
 
             //When
             Action datesTest = () => bookingLogic.CreateBooking(room, arrival, departure);
@@ -102,7 +102,7 @@ namespace TestDrivenHotel.Tests
         public void CreateBooking_BookingInThePast_ShouldThrowArgumentException()
         {
             //Given
-            RoomModel room = new RoomModel
+            RoomModel room = new()
             {
                 Id = 1,
                 Description = "Luxury Suite with Ocean View",
@@ -111,8 +111,8 @@ namespace TestDrivenHotel.Tests
                 Seaview = true,
                 Balcony = true
             };
-            DateTime arrival = new DateTime(2023, 2, 13);
-            DateTime departure = new DateTime(2023, 2, 17);
+            DateTime arrival = new(2023, 2, 13);
+            DateTime departure = new(2023, 2, 17);
 
             //When
             Action datesTest = () => bookingLogic.CreateBooking(room, arrival, departure);

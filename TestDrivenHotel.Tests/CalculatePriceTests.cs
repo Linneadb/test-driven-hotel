@@ -28,7 +28,7 @@ namespace TestDrivenHotel.Tests
         public void CalculatePrice_NullGuests_ShouldThrowArgumentNullException()
         {
             //Given
-            RoomModel room = new RoomModel
+            RoomModel room = new()
             {
                 Id = 1,
                 Description = "Luxury Suite with Ocean View",
@@ -64,7 +64,7 @@ namespace TestDrivenHotel.Tests
         public void CalculatePrice_ThreeGuests_ShouldReturnTotalPrice1125()
         {
             //Given
-            RoomModel room = new RoomModel
+            RoomModel room = new()
             {
                 Id = 1,
                 Description = "Luxury Suite with Ocean View",
