@@ -26,10 +26,10 @@
     </select>
 
     <label for="start">Arrival date:</label>
-        <input type="date" asp-for="@Model.ArrivalDate" min="2024-02-02" max="2024-12-31" />
+        <input type="date" asp-for="@Model.ArrivalDate" min="2024-02-02" max="2030-12-31" />
 
     <label for="end">Departure date:</label>
-        <input type="date" asp-for="@Model.DepartureDate" min="2024-02-02" max="2024-12-31" />
+        <input type="date" asp-for="@Model.DepartureDate" min="2024-02-02" max="2030-12-31" />
 
     <input class="btn btn-primary" type="submit" value="Search available rooms"/>
 </form>

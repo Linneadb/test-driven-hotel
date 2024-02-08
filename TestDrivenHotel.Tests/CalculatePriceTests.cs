@@ -175,20 +175,4 @@ namespace TestDrivenHotel.Tests
             nullRoomTest.Should().Throw<ArgumentNullException>();
         }
     }
-    //[Fact]
-    //Room has no price
-    //[Fact]
-    //Number of guests is insane (higher than 7)
-
-    /* public double CalculatePrice(RoomModel room, int guests)
-     {
-         double totalPrice = room.Price;
-         //price logic
-         if (guests > 1)
-             totalPrice = (double)(room.Price * guests) * 0.75;
-
-         return totalPrice;
-     }
-    */
-
 }
