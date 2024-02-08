@@ -1,4 +1,4 @@
-﻿In the README the User story/ies should be outlined
+Domain: [testdriven-hotel-linnea.azurewebsites.net](https://testdriven-hotel-linnea.azurewebsites.net/)
 
 User Story
 
