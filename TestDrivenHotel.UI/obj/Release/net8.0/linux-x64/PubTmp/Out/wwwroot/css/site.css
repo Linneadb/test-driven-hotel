@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.room-card {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.room-image {
+    max-height: 50px;
+    margin-bottom: 10px;
+}

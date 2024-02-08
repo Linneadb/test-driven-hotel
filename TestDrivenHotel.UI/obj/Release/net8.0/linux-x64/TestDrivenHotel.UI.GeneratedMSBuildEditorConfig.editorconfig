@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\linnea\source\repos\TestDrivenHotel\TestDrivenHotel.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/linnea/source/repos/TestDrivenHotel/TestDrivenHotel.UI/Pages/AvailableRooms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXZhaWxhYmxlUm9vbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/linnea/source/repos/TestDrivenHotel/TestDrivenHotel.UI/Pages/BookRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va1Jvb20uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/linnea/source/repos/TestDrivenHotel/TestDrivenHotel.UI/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
