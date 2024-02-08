@@ -5,17 +5,6 @@ namespace TestDrivenHotel.Logic
 {
     public class BookingLogic
     {
-        public double CalculatePrice(RoomModel room, int guests)
-        {
-            double totalPrice = room.Price;
-            //price logic
-            if (guests > 1)
-                totalPrice = (double)(room.Price * guests) * 0.75;
-
-            return totalPrice;
-        }
-
-
         public List<RoomModel> GetAvailableRooms(List<RoomModel> rooms, List<BookingModel> bookings, string feature, int guests, DateTime arrivalDate, DateTime departureDate)
         {
             if (rooms == null)
@@ -81,11 +70,39 @@ namespace TestDrivenHotel.Logic
                     .ToList();
         }
 
+        public double CalculatePrice(RoomModel room, int guests)
+        {
+            if (guests <= 0 || room == null)
+                throw new ArgumentNullException();
+            if (guests > 7)
+                throw new ArgumentException("To many guests");
+
+            double totalPrice = room.Price;
+
+            //price logic
+            if (guests > 1)
+            {
+                totalPrice *= guests * 0.75;
+            }
+
+            return totalPrice;
+        }
+
         public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")
         {
+            if (room == null || room.Id < 1)
+                throw new ArgumentNullException();
+
+            if (arrivalDate > departureDate || arrivalDate < DateTime.Today)
+                throw new ArgumentException("Dates are incorrect");
+
+            //getting the highest Id from bookingList
+            var bookings = ListRepository.GetAllBookings();
+            int bookingId = (bookings.Max(b => b.Id)) + 1;
+
             BookingModel newBooking = new BookingModel
             {
-                Id = 10,
+                Id = bookingId,
                 RoomId = room.Id,
                 StartDate = arrivalDate,
                 EndDate = departureDate,
@@ -93,6 +110,7 @@ namespace TestDrivenHotel.Logic
                 Comment = comment
             };
 
+            //adding booking to bookingList
             ListRepository.AddBooking(newBooking);
 
             return newBooking;

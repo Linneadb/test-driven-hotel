@@ -617,25 +617,5 @@ namespace TestDrivenHotel.Tests
             actualRooms.Should().BeOfType<List<RoomModel>>();
             actualRooms.Should().HaveCount(2);
         }
-
-        // **** CREATE BOOKING TESTS ****
-        /*public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")
-        {
-            BookingModel newBooking = new BookingModel
-            {
-                Id = 10,
-                RoomId = room.Id,
-                StartDate = arrivalDate,
-                EndDate = departureDate,
-                Created = DateTime.Now,
-                Comment = comment
-            };
-
-            ListRepository.AddBooking(newBooking);
-
-            return newBooking;
-        }
-        */
-
     }
 }
