@@ -1,0 +1,31 @@
+name: CiCd workflow
+on:
+    push:
+        branches:
+            - master
+jobs:
+    test-project:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v4.1.1
+
+            - name: Set up .net
+              uses: actions/setup-dotnet@v4.0.0
+              with:
+                dotnet-version: '8'
+
+            - name: Cache dependencies #lagt till package
+              uses: actions/cache@v4.0.0
+              with:
+                path: ~/.nuget
+                key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+
+            - name: Install dependencies #Detta steget ar det som cachas
+              run: dotnet restore
+
+            - name: Build
+              run: dotnet build --no-restore
+
+            - name: Test
+              run: dotnet test --no-restore --verbosity normal
