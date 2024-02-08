@@ -554,8 +554,88 @@ namespace TestDrivenHotel.Tests
             datesTest.Should().Throw<ArgumentException>();
         }
 
+        // **** AVAILABLE ROOMS TEST ****
 
+        [Fact]
+        public void GetAvailableRooms_EmptyRoomsList_ShouldReturnEmptyList()
+        {
+            //Given
+            List<RoomModel> emptyRoomsList = new();
+            List<BookingModel>? bookings = testBookings;
+            string feature = "None";
+            int guests = 1;
+            DateTime arrival = new DateTime(2024, 12, 13);
+            DateTime departure = new DateTime(2024, 12, 17);
+            BookingLogic bookingLogic = new();
 
+            //When
+            var emptyList = bookingLogic.GetAvailableRooms(emptyRoomsList, bookings, feature, guests, arrival, departure);
+
+            //Then
+            emptyList.Should().BeEmpty();
+            emptyList.Should().NotBeNull();
+            emptyList.Should().BeOfType<List<RoomModel>>();
+        }
+
+        [Fact]
+        public void GetAvailableRooms_nullRoomsList_ShouldThrowArgumentNullException()
+        {
+            //Given
+            List<RoomModel>? nullRoomsList = null;
+            List<BookingModel>? bookings = testBookings;
+            string feature = "None";
+            int guests = 1;
+            DateTime arrival = new DateTime(2024, 12, 13);
+            DateTime departure = new DateTime(2024, 12, 17);
+            BookingLogic bookingLogic = new();
+
+            //When
+            Action nullListTest = () => bookingLogic.GetAvailableRooms(nullRoomsList, bookings, feature, guests, arrival, departure);
+
+            //Then
+            nullListTest.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void GetAvailableRooms_AvailableRooms_ShouldReturnTwoAvailableRooms()
+        {
+            //Given
+            List<RoomModel> rooms = testRooms;
+            List<BookingModel>? bookings = testBookings;
+            string feature = "None";
+            int guests = 1;
+            DateTime arrival = new DateTime(2024, 4, 13);
+            DateTime departure = new DateTime(2024, 4, 17);
+            BookingLogic bookingLogic = new();
+
+            //When
+            var actualRooms = bookingLogic.GetAvailableRooms(rooms, bookings, feature, guests, arrival, departure);
+
+            //Then
+            actualRooms.Should().NotBeEmpty();
+            actualRooms.Should().NotBeNull();
+            actualRooms.Should().BeOfType<List<RoomModel>>();
+            actualRooms.Should().HaveCount(2);
+        }
+
+        // **** CREATE BOOKING TESTS ****
+        /*public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")
+        {
+            BookingModel newBooking = new BookingModel
+            {
+                Id = 10,
+                RoomId = room.Id,
+                StartDate = arrivalDate,
+                EndDate = departureDate,
+                Created = DateTime.Now,
+                Comment = comment
+            };
+
+            ListRepository.AddBooking(newBooking);
+
+            return newBooking;
+        }
+        */
 
     }
 }

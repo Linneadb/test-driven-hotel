@@ -5,16 +5,6 @@ namespace TestDrivenHotel.Logic
 {
     public class BookingLogic
     {
-
-        //Choose a room and see the room description
-        public bool SelectRoom()
-        {
-
-            throw new NotImplementedException();
-
-            //return GetRoomById;
-        }
-
         public double CalculatePrice(RoomModel room, int guests)
         {
             double totalPrice = room.Price;
@@ -23,23 +13,6 @@ namespace TestDrivenHotel.Logic
                 totalPrice = (double)(room.Price * guests) * 0.75;
 
             return totalPrice;
-        }
-
-        public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")
-        {
-            BookingModel newBooking = new BookingModel
-            {
-                Id = 10,
-                RoomId = room.Id,
-                StartDate = arrivalDate,
-                EndDate = departureDate,
-                Created = DateTime.Now,
-                Comment = comment
-            };
-
-            ListRepository.AddBooking(newBooking);
-
-            return newBooking;
         }
 
 
@@ -108,26 +81,22 @@ namespace TestDrivenHotel.Logic
                     .ToList();
         }
 
+        public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")
+        {
+            BookingModel newBooking = new BookingModel
+            {
+                Id = 10,
+                RoomId = room.Id,
+                StartDate = arrivalDate,
+                EndDate = departureDate,
+                Created = DateTime.Now,
+                Comment = comment
+            };
 
-        /*
-      public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
-      {
-          return dt >= start && dt < end;
-      }
+            ListRepository.AddBooking(newBooking);
 
-
-          if (CheckForNullProperties(rooms))
-              throw new NullReferenceException("There are rooms that contain null values");
-
-      private bool CheckForNullProperties(List<RoomModel> rooms)
-      {
-          return rooms.Any(room => room.GetType()
-                            .GetProperties()
-                            .Select(pi => pi.GetValue(room))
-                            .Any(value => value == null));
-      }
-
-      */
+            return newBooking;
+        }
     }
 }
 
