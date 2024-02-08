@@ -72,20 +72,19 @@ namespace TestDrivenHotel.Logic
 
         public double CalculatePrice(RoomModel room, int guests)
         {
-            if (guests <= 0 || room == null)
+            if (guests <= 0 || room == null || room.Price <= 0)
                 throw new ArgumentNullException();
-            if (guests > 7)
-                throw new ArgumentException("To many guests");
+            if (guests > 7 || guests > room.MaxNumberOfGuests)
+                throw new ArgumentException();
 
             double totalPrice = room.Price;
 
             //price logic
-            if (guests > 1)
+            if (guests == 1)
             {
-                totalPrice *= guests * 0.75;
+                return totalPrice;
             }
-
-            return totalPrice;
+            else return totalPrice *= guests * 0.75;
         }
 
         public BookingModel CreateBooking(RoomModel room, DateTime arrivalDate, DateTime departureDate, String comment = "")

@@ -9,8 +9,8 @@ namespace TestDrivenHotel.Tests
 
         //Test list of RoomModel
 
-        List<RoomModel> testRooms = new()
-        {
+        List<RoomModel> testRooms =
+        [
             new RoomModel
             {
                 Id = 1,
@@ -38,12 +38,12 @@ namespace TestDrivenHotel.Tests
                 Seaview = false,
                 Balcony = true
             },
-        };
+        ];
 
         // Test list of BookingModel
 
-        List<BookingModel> testBookings = new()
-        {
+        List<BookingModel> testBookings =
+        [
             new BookingModel
             {
                 Id = 1,
@@ -71,7 +71,7 @@ namespace TestDrivenHotel.Tests
                 Created = DateTime.Now,
                 Comment = "Family vacation"
             },
-        };
+        ];
 
 
         // **** FILTER FEATURES TESTS *****
@@ -139,27 +139,27 @@ namespace TestDrivenHotel.Tests
         public void FilterFeatures_NoRoomsWithSeaview_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> roomsWithNoSeaview = new()
-            {
+            List<RoomModel> roomsWithNoSeaview =
+            [
                 new RoomModel
                 {
-                Id = 2,
-                Description = "Standard Room with City View",
-                Price = 200,
-                MaxNumberOfGuests = 2,
-                Seaview = false,
-                Balcony = false
+                    Id = 2,
+                    Description = "Standard Room with City View",
+                    Price = 200,
+                    MaxNumberOfGuests = 2,
+                    Seaview = false,
+                    Balcony = false
                 },
                 new RoomModel
                 {
-                Id = 3,
-                Description = "Standard Room with City View",
-                Price = 200,
-                MaxNumberOfGuests = 2,
-                Seaview = false,
-                Balcony = true,
+                    Id = 3,
+                    Description = "Standard Room with City View",
+                    Price = 200,
+                    MaxNumberOfGuests = 2,
+                    Seaview = false,
+                    Balcony = true,
                 },
-            };
+            ];
             string feature = "Seaview";
             BookingLogic bookingLogic = new();
 
@@ -175,27 +175,27 @@ namespace TestDrivenHotel.Tests
         public void FilterFeatures_NoRoomsWithBalcony_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> roomsWithNoBalcony = new()
-            {
+            List<RoomModel> roomsWithNoBalcony =
+            [
                 new RoomModel
                 {
-                Id = 2,
-                Description = "Standard Room with City View",
-                Price = 200,
-                MaxNumberOfGuests = 2,
-                Seaview = false,
-                Balcony = false
+                    Id = 2,
+                    Description = "Standard Room with City View",
+                    Price = 200,
+                    MaxNumberOfGuests = 2,
+                    Seaview = false,
+                    Balcony = false
                 },
                 new RoomModel
                 {
-                Id = 3,
-                Description = "Standard Room with City View",
-                Price = 200,
-                MaxNumberOfGuests = 2,
-                Seaview = true,
-                Balcony = false,
+                    Id = 3,
+                    Description = "Standard Room with City View",
+                    Price = 200,
+                    MaxNumberOfGuests = 2,
+                    Seaview = true,
+                    Balcony = false,
                 },
-            };
+            ];
             string feature = "Balcony";
             BookingLogic bookingLogic = new();
 
@@ -211,7 +211,7 @@ namespace TestDrivenHotel.Tests
         public void FilterFeatures_EmptyRoomsList_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> emptyRoomsList = new();
+            List<RoomModel> emptyRoomsList = [];
             string feature = "Balcony";
             BookingLogic bookingLogic = new();
 
@@ -291,7 +291,7 @@ namespace TestDrivenHotel.Tests
         public void FilterGuests_EmptyRoomsList_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> emptyRoomsList = new();
+            List<RoomModel> emptyRoomsList = [];
             int guests = 2;
             BookingLogic bookingLogic = new();
 
@@ -375,7 +375,7 @@ namespace TestDrivenHotel.Tests
         public void FilterDates_EmptyRoomsList_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> emptyRoomsList = new();
+            List<RoomModel> emptyRoomsList = [];
             List<BookingModel>? bookings = testBookings;
             DateTime arrival = new(2024, 12, 13);
             DateTime departure = new(2024, 12, 17);
@@ -412,7 +412,7 @@ namespace TestDrivenHotel.Tests
         {
             //Given
             List<RoomModel> rooms = testRooms;
-            List<BookingModel>? EmptyBookingsList = new();
+            List<BookingModel>? EmptyBookingsList = [];
             DateTime arrival = new(2024, 12, 13);
             DateTime departure = new(2024, 12, 17);
             BookingLogic bookingLogic = new();
@@ -560,7 +560,7 @@ namespace TestDrivenHotel.Tests
         public void GetAvailableRooms_EmptyRoomsList_ShouldReturnEmptyList()
         {
             //Given
-            List<RoomModel> emptyRoomsList = new();
+            List<RoomModel> emptyRoomsList = [];
             List<BookingModel>? bookings = testBookings;
             string feature = "None";
             int guests = 1;

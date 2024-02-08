@@ -61,7 +61,7 @@ namespace TestDrivenHotel.Tests
         }
 
         [Fact]
-        public void CalculatePrice_ThreeGuests_ShouldReturnTotalPrice1125()
+        public void CalculatePrice_TwoGuests_ShouldReturnTotalPrice750()
         {
             //Given
             RoomModel room = new()
@@ -73,7 +73,7 @@ namespace TestDrivenHotel.Tests
                 Seaview = true,
                 Balcony = true
             };
-            int guests = 3;
+            int guests = 2;
 
             //When
             var actualPrice = bookingLogic.CalculatePrice(room, guests);
@@ -81,24 +81,114 @@ namespace TestDrivenHotel.Tests
 
             //Then
             actualPrice.Should().Be(expectedPrice);
+            actualPrice.Should().Be(750);
+            actualPrice.Should().BePositive();
+        }
+        [Fact]
+        public void CalculatePrice_OneGuest_ShouldReturnTotalPrice500()
+        {
+            //Given
+            RoomModel room = new()
+            {
+                Id = 1,
+                Description = "Luxury Suite with Ocean View",
+                Price = 500,
+                MaxNumberOfGuests = 2,
+                Seaview = true,
+                Balcony = true
+            };
+            int guests = 1;
+
+            //When
+            var actualPrice = bookingLogic.CalculatePrice(room, guests);
+            var expectedPrice = room.Price;
+
+            //Then
+            actualPrice.Should().Be(expectedPrice);
+            actualPrice.Should().Be(500);
             actualPrice.Should().BePositive();
         }
 
-        //[Fact]
-        //Room has no price
-        //[Fact]
-        //Number of guests is insane (higher than 7)
+        [Fact]
+        public void CalculatePrice_MoreThanMaxNrOfGuest_ShouldThrowArgumentException()
+        {
+            //Given
+            RoomModel room = new()
+            {
+                Id = 1,
+                Description = "Luxury Suite with Ocean View",
+                Price = 500,
+                MaxNumberOfGuests = 2,
+                Seaview = true,
+                Balcony = true
+            };
+            int toManyGuests = 3;
 
-        /* public double CalculatePrice(RoomModel room, int guests)
-         {
-             double totalPrice = room.Price;
-             //price logic
-             if (guests > 1)
-                 totalPrice = (double)(room.Price * guests) * 0.75;
+            //Then
+            Action nullRoomTest = () => bookingLogic.CalculatePrice(room, toManyGuests);
 
-             return totalPrice;
-         }
-        */
+            //Then
+            nullRoomTest.Should().Throw<ArgumentException>();
+        }
 
+        [Fact]
+        public void CalculatePrice_MoreThanSevenGuests_ShouldThrowArgumentException()
+        {
+            //Given
+            RoomModel room = new()
+            {
+                Id = 1,
+                Description = "Luxury Suite with Ocean View",
+                Price = 500,
+                MaxNumberOfGuests = 2,
+                Seaview = true,
+                Balcony = true
+            };
+            int toManyGuests = 376;
+
+            //When
+            Action nullRoomTest = () => bookingLogic.CalculatePrice(room, toManyGuests);
+
+            //Then
+            nullRoomTest.Should().Throw<ArgumentException>();
+        }
+
+        [Fact]
+        public void CalculatePrice_NullPriceRoom_ShouldThrowArgumentNullException()
+        {
+            //Given
+            RoomModel nullPriceRoom = new()
+            {
+                Id = 1,
+                Description = "Luxury Suite with Ocean View",
+                Price = 0,
+                MaxNumberOfGuests = 2,
+                Seaview = true,
+                Balcony = true
+            };
+            int guests = 2;
+
+            //When
+            Action nullRoomTest = () => bookingLogic.CalculatePrice(nullPriceRoom, guests);
+
+            //Then
+            nullRoomTest.Should().Throw<ArgumentNullException>();
+        }
     }
+    //[Fact]
+    //Room has no price
+    //[Fact]
+    //Number of guests is insane (higher than 7)
+
+    /* public double CalculatePrice(RoomModel room, int guests)
+     {
+         double totalPrice = room.Price;
+         //price logic
+         if (guests > 1)
+             totalPrice = (double)(room.Price * guests) * 0.75;
+
+         return totalPrice;
+     }
+    */
+
 }

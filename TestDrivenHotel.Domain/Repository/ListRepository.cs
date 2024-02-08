@@ -62,7 +62,7 @@ namespace TestDrivenHotel.DAL.Repository
 
         public static List<RoomModel> Rooms = new List<RoomModel>
         {
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 1,
                 Description = "Luxury Suite with Ocean View",
@@ -71,7 +71,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = true,
                 Balcony = true
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 2,
                 Description = "Standard Room with City View",
@@ -80,7 +80,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = false,
                 Balcony = false
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 3,
                 Description = "Family Room with Garden View",
@@ -89,7 +89,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = false,
                 Balcony = true
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 4,
                 Description = "Deluxe Room with Pool Access",
@@ -98,7 +98,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = false,
                 Balcony = false
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 5,
                 Description = "Executive Suite with Panoramic View",
@@ -107,7 +107,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = true,
                 Balcony = true
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 6,
                 Description = "Penthouse with Private Terrace",
@@ -116,7 +116,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = true,
                 Balcony = true
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 7,
                 Description = "Economy Room with Courtyard View",
@@ -125,7 +125,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = false,
                 Balcony = false
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 8,
                 Description = "Business Suite with Workstation",
@@ -134,7 +134,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = true,
                 Balcony = false
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 9,
                 Description = "Honeymoon Villa with Jacuzzi",
@@ -143,7 +143,7 @@ namespace TestDrivenHotel.DAL.Repository
                 Seaview = true,
                 Balcony = true
             },
-            new Models.RoomModel
+            new RoomModel
             {
                 Id = 10,
                 Description = "Budget Room with Shared Bathroom",
