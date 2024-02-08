@@ -7,16 +7,24 @@ As a hotel customer I would like to be able to browse available rooms and book a
 Acceptance criteria 
 
 On a webpage, the hotel customer should be able to:
+
 •	Find available rooms that match client criteria:
+
   o	select rooms with a view or a balcony - filterFeatures(),
+  
   o	select rooms appropriate for the numbers of guests – filterGuests(),
+  
   o	select dates for arrival and departure - filterDates(),
+  
   o	see a list of rooms available – getAvailableRooms(Rooms),
+  
 •	see the total price of the booking – calculatePrice(),
+
 •	book a room - createBooking().
 
 
 Reflektion och utvärdering 
+
 Skriv en kort reflektion om projektet. Beskriv vad du lärde dig, vilka utmaningar du stötte på, och hur du övervann dem. Om du gjorde om projektet när det var klart, vad hade du gjort annorlunda då? 
 
 I arbetet med projektet har jag lärt mig mer om .NET programmering, applikationsstruktur med lager och, framför allt, tester och testdriven utveckling (TDD). Det har varit hjälpsamt att ha en metod för att ta sig en ett projekt. Ofta är det svårt att veta var man ska börja och det blir mycket hoppande fram och tillbaka. Med TDD fanns ett givet angreppssätt, något att hålla i handen under arbetets gång.
