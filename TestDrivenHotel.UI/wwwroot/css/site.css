@@ -32,3 +32,10 @@ body {
     max-height: 50px;
     margin-bottom: 10px;
 }
+
+index-image {
+    max-height: 200px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 10px;
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zTbTQSBPy0oa7S7JD9GEEgDkXktD2SpyQhRX7Qobl14=",
+  "Hash": "jEoFdQsmTCfAx/POUACDP8fXNgW2Dq8PuqT8cKBKHOI=",
   "Source": "TestDrivenHotel.UI",
   "BasePath": "_content/TestDrivenHotel.UI",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\balcony.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\wwwroot\\images\\beach.png",
+      "SourceId": "TestDrivenHotel.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\wwwroot\\",
+      "BasePath": "_content/TestDrivenHotel.UI",
+      "RelativePath": "images/beach.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\beach.png"
     },
     {
       "Identity": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\wwwroot\\images\\seaview.jpg",

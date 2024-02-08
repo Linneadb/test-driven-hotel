@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\balcony.jpg"
     },
     {
+      "Id": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\wwwroot\\images\\beach.png",
+      "PackagePath": "staticwebassets\\images\\beach.png"
+    },
+    {
       "Id": "C:\\Users\\linnea\\source\\repos\\TestDrivenHotel\\TestDrivenHotel.UI\\wwwroot\\images\\seaview.jpg",
       "PackagePath": "staticwebassets\\images\\seaview.jpg"
     },

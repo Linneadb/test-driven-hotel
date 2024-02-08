@@ -21,8 +21,8 @@ namespace TestDrivenHotel.UI.Pages
         [Required]
         public DateTime DepartureDate { get; set; } = DateTime.Now.AddDays(1);
 
-        public string Message { get; set; }
-        public string MessageToGet { get; set; }
+        public string? Message { get; set; }
+        public string? MessageToGet { get; set; }
 
         public void OnGet()
         {

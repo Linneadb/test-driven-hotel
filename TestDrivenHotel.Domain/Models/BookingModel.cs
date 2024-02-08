@@ -12,6 +12,6 @@
         public string Comment { get; set; } = string.Empty;
 
         // Navigation property
-        public RoomModel Room { get; set; }
+        public RoomModel? Room { get; set; }
     }
 }

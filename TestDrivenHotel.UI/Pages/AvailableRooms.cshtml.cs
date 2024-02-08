@@ -11,14 +11,14 @@ namespace TestDrivenHotel.UI.Pages
 
         public int Guests { get; set; }
 
-        public string Feature { get; set; }
+        public string? Feature { get; set; }
 
         public DateTime DepartureDate { get; set; }
         public DateTime ArrivalDate { get; set; }
 
         public List<RoomModel>? AvailableRooms { get; set; }
 
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
         public void OnGet(string feature, int guests, DateTime arrivalDate, DateTime departureDate)
         {
@@ -31,7 +31,7 @@ namespace TestDrivenHotel.UI.Pages
             BookingLogic bookingLogic = new();
 
             List<BookingModel> bookings = ListRepository.GetAllBookings();
-            List<RoomModel> rooms = ListRepository.GetAllRooms();
+            List<RoomModel>? rooms = ListRepository.GetAllRooms();
 
             try
             {

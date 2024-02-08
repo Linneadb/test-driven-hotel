@@ -12,6 +12,6 @@ namespace TestDrivenHotel.DAL.Models
 
         //Navigation property
 
-        public List<BookingModel> Bookings { get; set; }
+        public List<BookingModel>? Bookings { get; set; }
     }
 }
